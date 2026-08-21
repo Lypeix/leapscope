@@ -1,0 +1,225 @@
+**# LeapScope Roadmap**
+
+Target: a usable, deployed first release by mid-November 2026.
+
+**# Phase 1: First End-to-End Activity Pipeline**
+
+**## Phase 1 Finish Line**
+
+\- Docker Compose starts the API and PostgreSQL
+
+\- Alembic applies all migrations to an empty PostgreSQL database
+
+\- A user can register and authenticate
+
+\- A collector device can receive a revocable token
+
+\- The Windows collector detects foreground applications and idle time
+
+\- Sessions survive temporary network failure in a local SQLite queue
+
+\- Sessions synchronize without creating duplicates
+
+\- The API returns session history and basic daily totals
+
+\- Automated tests run through GitHub Actions
+
+**## Product Contract**
+
+\- [x] Select the LeapScope name
+
+\- [x] Define the initial product boundary
+
+\- [x] Create the monorepo structure
+
+\- [x] Initialize Git and create the GitHub repository
+
+\- [ ] Define the Phase 1 user workflow
+
+\- [ ] Define what counts as an activity session
+
+\- [ ] Decide when a session starts and finishes
+
+\- [ ] Define idle-time behavior
+
+\- [ ] Decide which application information may be stored
+
+\- [ ] Define application exclusion and privacy rules
+
+\- [ ] Write concrete Phase 1 acceptance criteria
+
+\- [ ] Draw the collector-to-database data flow
+
+**## FastAPI, Docker, And PostgreSQL**
+
+\- [ ] Create and activate the virtual environment
+
+\- [ ] Add dependencies gradually to \`pyproject.toml\`
+
+\- [ ] Create the FastAPI application and lifespan
+
+\- [ ] Add environment-backed settings
+
+\- [ ] Write the API Dockerfile
+
+\- [ ] Add PostgreSQL to Docker Compose
+
+\- [ ] Add the API to Docker Compose
+
+\- [ ] Learn Docker images, containers, ports, volumes, and networks
+
+\- [ ] Configure the SQLAlchemy engine and session factory
+
+\- [ ] Initialize Alembic
+
+\- [ ] Add health and database-readiness endpoints
+
+\- [ ] Configure the dedicated PostgreSQL test database
+
+\- [ ] Create the initial pytest and TestClient setup
+
+\- [ ] Add GitHub Actions for tests
+
+\- [ ] Verify the API locally and through Docker
+
+**## Reconstruction And Buffer**
+
+\- [ ] Reconstruct the Docker and database foundation locally
+
+\- [ ] Explain how the API reaches PostgreSQL through the Docker network
+
+\- [ ] Explain what persists when containers are removed
+
+\- [ ] Review and document encountered failures
+
+\- [ ] Use this milestone as recovery time if earlier work took longer
+
+**## Users, Devices, And Authentication**
+
+\- [ ] Create \`User\` and \`Device\` models
+
+\- [ ] Generate and apply their migration
+
+\- [ ] Create registration and login schemas
+
+\- [ ] Hash passwords using Argon2
+
+\- [ ] Issue and validate JWT access tokens
+
+\- [ ] Add \`POST /auth/register\`
+
+\- [ ] Add \`POST /auth/login\`
+
+\- [ ] Add \`GET /users/me\`
+
+\- [ ] Add collector-device registration
+
+\- [ ] Generate revocable collector tokens
+
+\- [ ] Store collector tokens as hashes
+
+\- [ ] Test authentication and resource ownership
+
+**## Review And Buffer**
+
+\- [ ] Reconstruct the authentication flow
+
+\- [ ] Explain password hashing versus encryption
+
+\- [ ] Explain JWT authentication versus collector tokens
+
+\- [ ] Review database relationships and ownership
+
+\- [ ] Catch up or stop early if mentally saturated
+
+**## Activity Storage And Ingestion**
+
+\- [ ] Create \`Application\` and \`ActivitySession\` models
+
+\- [ ] Define UTC timestamp handling
+
+\- [ ] Add a unique collector event identifier
+
+\- [ ] Generate and apply the activity migration
+
+\- [ ] Add batch session-ingestion schemas
+
+\- [ ] Add \`POST /collector/sessions/batch\`
+
+\- [ ] Reject invalid and negative session durations
+
+\- [ ] Prevent duplicate session ingestion
+
+\- [ ] Enforce device and user ownership
+
+\- [ ] Add \`GET /sessions\`
+
+\- [ ] Test duplicates, ownership, and invalid timestamps
+
+**## Windows Collector Prototype**
+
+\- [ ] Detect the foreground window with \`pywin32\`
+
+\- [ ] Resolve process information with \`psutil\`
+
+\- [ ] Detect idle time
+
+\- [ ] Implement session start and finish transitions
+
+\- [ ] Handle switching between applications
+
+\- [ ] Handle collector shutdown
+
+\- [ ] Avoid recording excluded applications
+
+\- [ ] Unit-test session transition logic separately from Windows APIs
+
+**## Offline Queue And Synchronization**
+
+\- [ ] Create the local SQLite queue
+
+\- [ ] Save completed sessions before uploading
+
+\- [ ] Upload sessions in batches using HTTPX
+
+\- [ ] Mark successfully synchronized sessions
+
+\- [ ] Retain sessions after failed synchronization
+
+\- [ ] Retry safely without creating duplicates
+
+\- [ ] Test offline collection followed by reconnection
+
+**## First Analytics Endpoint**
+
+\- [ ] Add daily application totals
+
+\- [ ] Group session durations by application
+
+\- [ ] Add \`GET /analytics/daily\`
+
+\- [ ] Test daily totals across midnight and timezone boundaries
+
+\- [ ] Document known Phase 1 analytics limitations
+
+**## Integration And Demonstration**
+
+\- [ ] Run the project from a clean clone
+
+\- [ ] Start API and PostgreSQL through Docker Compose
+
+\- [ ] Apply all migrations to an empty database
+
+\- [ ] Register a user and collector device
+
+\- [ ] Record real application switches
+
+\- [ ] Disconnect and reconnect synchronization
+
+\- [ ] Confirm sessions appear in PostgreSQL
+
+\- [ ] Retrieve daily totals through the API
+
+\- [ ] Run the complete test suite
+
+\- [ ] Verify GitHub Actions passes on a clean push
