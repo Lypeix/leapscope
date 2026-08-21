@@ -1,6 +1,6 @@
 # LeapScope Roadmap
 
-> This roadmap will be evolving during the production
+> This roadmap will be evolving during the production process
 
 Target: a usable, deployed first release by mid-November 2026.
 
