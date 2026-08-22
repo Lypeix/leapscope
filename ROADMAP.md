@@ -25,9 +25,9 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Create the initial multi-component project structure
 - [x] Initialize Git and create the GitHub repository
 - [x] Define the Phase 1 user workflow
-- [ ] Define what counts as an activity session
-- [ ] Decide when a session starts and finishes
-- [ ] Define idle-time behavior
+- [x] Define what counts as an activity session
+- [x] Decide when a session starts and finishes
+- [x] Define idle-time behavior
 - [ ] Decide which application information may be stored
 - [ ] Define application exclusion and privacy rules
 - [ ] Write concrete Phase 1 acceptance criteria

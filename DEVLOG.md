@@ -18,3 +18,10 @@
 ### Session 1 (08:05-x)
 - Created `PRODUCT.md`
 - Defined Phase 1 user workflow
+- Defined what counts as an `activity session`
+- Defined when the user enters `idle state`
+- Expanded idle-time rules to distinguish user inactivity from verified foreground media playback
+- Defined behavior when multiple windows are opened
+- Defined when activity sessions start and finish
+- Defined session boundary rules
+- Checked the comit with `git diff --cached`
