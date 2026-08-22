@@ -28,8 +28,8 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Define what counts as an activity session
 - [x] Decide when a session starts and finishes
 - [x] Define idle-time behavior
-- [ ] Decide which application information may be stored
-- [ ] Define application exclusion and privacy rules
+- [x] Decide which application information may be stored
+- [x] Define application exclusion and privacy rules
 - [ ] Write concrete Phase 1 acceptance criteria
 - [ ] Draw the collector-to-database data flow
 - [ ] Define UTC storage and user reporting-timezone behavior

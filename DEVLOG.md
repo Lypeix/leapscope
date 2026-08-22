@@ -15,13 +15,16 @@
 
 ## Day 2 - 22.08.2026
 
-### Session 1 (08:05-x)
+### Session 1 (08:05-09:24)
 - Created `PRODUCT.md`
 - Defined Phase 1 user workflow
 - Defined what counts as an `activity session`
-- Defined when the user enters `idle state`
+- Defined when the user enters an `idle state`
 - Expanded idle-time rules to distinguish user inactivity from verified foreground media playback
 - Defined behavior when multiple windows are opened
 - Defined when activity sessions start and finish
 - Defined session boundary rules
-- Checked the comit with `git diff --cached`
+- Checked the commit with `git diff --cached`
+- Decided which application information may be stored
+- Defined application exclusion and privacy rules
+- Reviewed PRODUCT.md additions

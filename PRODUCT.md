@@ -92,6 +92,7 @@ LeapScope records at most one foreground application at a time.
 A new activity session starts when:
 
 - the collector starts while a trackable application is in the foreground and the user is active or verified foreground media is playing;
+- the user switches from one trackable application to another;
 - the user returns from an idle state;
 - tracking resumes after being paused;
 - the user returns from an excluded application to a trackable application;
@@ -122,3 +123,120 @@ The current activity session finishes when:
 - An unexpected collector failure must not generate activity beyond its last reliable observation.
 - Sessions must have an ending timestamp later than their starting timestamp.
 - Sessions belonging to the same collector device must never overlap.
+
+## Application Information Storage
+
+LeapScope stores only the application information required to identify applications and produce usage analytics.
+
+### Permanently Stored Application Information
+
+The backend may store:
+
+- an internal application identifier;
+- the normalized executable name, such as `Code.exe`;
+- a readable application name, such as `Visual Studio Code`;
+- an optional software publisher or Windows package identifier;
+- a user-defined application alias;
+- a user-defined category;
+- whether the application is excluded from tracking;
+- when the application was first and most recently detected.
+
+Publisher or package information may be used to distinguish applications that have identical executable names.
+
+### Permanently Stored Session Information
+
+Each synchronized activity session may contain:
+
+- a unique collector event identifier;
+- the owning user and collector device identifiers;
+- the identified application;
+- the UTC starting timestamp;
+- the UTC ending timestamp;
+- synchronization and creation timestamps.
+
+Session duration is calculated from the starting and ending timestamps.
+
+### Temporarily Observed Information
+
+The collector may temporarily inspect the following information while determining activity:
+
+- process identifier;
+- foreground-window handle;
+- last keyboard or mouse input time;
+- whether foreground media is currently playing.
+
+This information is used locally and is not permanently stored unless required by a later, documented feature.
+
+### Information Not Stored
+
+Phase 1 does not store:
+
+- complete window titles;
+- document or project names;
+- complete executable paths;
+- process command-line arguments;
+- visited URLs or browser history;
+- browser-tab contents;
+- video, stream, or song titles;
+- keystrokes or mouse movements;
+- clipboard contents;
+- screenshots or screen recordings;
+- contents of files, messages, or forms.
+
+Browsers are treated as applications during Phase 1. LeapScope records browser usage but does not identify individual websites or tabs.
+
+## Application Exclusion And Privacy Rules
+
+### Tracking Control
+
+- Activity tracking begins only after the user starts and configures the collector.
+- The user may pause and resume all tracking.
+- Pausing tracking immediately finishes the current session.
+- Resuming tracking starts a new session only if a trackable foreground application exists and the user is active or verified foreground media is playing.
+- LeapScope must not operate as hidden employee, household, or third-party monitoring software.
+
+### Application Exclusions
+
+Applications are tracked by default unless they are excluded by the user or by a built-in system rule.
+
+When an excluded application becomes the foreground application:
+
+- the current tracked session finishes;
+- no session is created for the excluded application;
+- no usage timestamps or duration are placed in the local SQLite queue;
+- no activity for that application is transmitted to the backend;
+- verified media playback does not override the exclusion.
+
+When the user returns to a trackable application, a new session begins.
+
+Exclusions are enforced by the collector before session persistence or synchronization. The backend must not receive activity sessions and discard them afterward.
+
+### Exclusion Configuration
+
+- User exclusions are synchronized to registered collector devices.
+- Each collector retains the latest exclusion configuration locally for offline use.
+- An exclusion rule may store enough application identity to recognize the excluded application.
+- Storing an exclusion rule does not permit storing usage history for that application.
+- During Phase 1, browsers can only be excluded as complete applications, not by individual website.
+
+LeapScope itself and Windows lock or sign-in surfaces are excluded automatically.
+
+### Historical Data
+
+Excluding an application affects future collection. It does not silently delete activity that was recorded before the exclusion.
+
+Historical data remains until the user explicitly deletes it through a future data-management feature.
+
+### Privacy Guarantees
+
+LeapScope must not:
+
+- record activity before the collector is deliberately started;
+- create sessions while tracking is paused;
+- upload sessions belonging to excluded applications;
+- inspect excluded applications for media activity;
+- log authentication tokens, passwords, or private application content;
+- expose one user's activity to another user;
+- use collected activity for advertising or third-party profiling.
+
+The local SQLite queue contains only sessions awaiting synchronization. Successfully accepted sessions are removed from the queue after confirmation from the backend.
