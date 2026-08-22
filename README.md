@@ -117,13 +117,4 @@ leapscope/
 `-- ROADMAP.md
 ```
 
-## Status
-
-LeapScope is in its requirements and foundation phase. The domain directories and
-configuration files are placeholders; the application, containers, database, task
-system, and CI pipeline have not been implemented yet.
-
-The Alembic directory and `alembic.ini` are intentionally absent. They will be created
-by running Alembic's initialization command during the migrations lesson.
-
-See [ROADMAP.md](ROADMAP.md) for the planned delivery path.
+## Status: Ongoing
