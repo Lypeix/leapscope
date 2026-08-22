@@ -111,6 +111,7 @@ leapscope/
 |-- .github/workflows/
 |-- docker-compose.yml
 |-- Dockerfile
+|-- PRODUCT.md
 |-- pyproject.toml
 |-- DEVLOG.md
 `-- ROADMAP.md

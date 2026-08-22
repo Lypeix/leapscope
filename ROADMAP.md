@@ -24,7 +24,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Define the initial product boundary
 - [x] Create the initial multi-component project structure
 - [x] Initialize Git and create the GitHub repository
-- [ ] Define the Phase 1 user workflow
+- [x] Define the Phase 1 user workflow
 - [ ] Define what counts as an activity session
 - [ ] Decide when a session starts and finishes
 - [ ] Define idle-time behavior

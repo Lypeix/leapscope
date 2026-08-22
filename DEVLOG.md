@@ -1,8 +1,8 @@
 # LeapScope Development Log
 
-## Day 1 - 21.08.2026 (18:05-20:15)
+## Day 1 - 21.08.2026 
 
-### Session 1
+### Session 1 (18:05-20:15)
 
 - Reviewed and revised the initial Codex-generated project planning and scaffolding
 - Selected the LeapScope product name
@@ -12,3 +12,9 @@
 - Created the initial multi-component project structure
 - Defined the Phase 1 finish line and milestone-based roadmap
 - Added placeholder files while leaving learning-critical configuration unimplemented
+
+## Day 2 - 22.08.2026
+
+### Session 1 (08:05-x)
+- Created `PRODUCT.md`
+- Defined Phase 1 user workflow
