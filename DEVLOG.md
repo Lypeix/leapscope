@@ -28,3 +28,7 @@
 - Decided which application information may be stored
 - Defined application exclusion and privacy rules
 - Reviewed PRODUCT.md additions
+
+### Session 2 (19:00-19:26)
+- Drew the collector-to-database data flow
+- Defined UTC storage and user reporting-timezone behavior

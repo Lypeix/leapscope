@@ -30,9 +30,8 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Define idle-time behavior
 - [x] Decide which application information may be stored
 - [x] Define application exclusion and privacy rules
-- [ ] Write concrete Phase 1 acceptance criteria
-- [ ] Draw the collector-to-database data flow
-- [ ] Define UTC storage and user reporting-timezone behavior
+- [x] Draw the collector-to-database data flow
+- [x] Define UTC storage and user reporting-timezone behavior
 
 ### FastAPI, Docker, And PostgreSQL
 

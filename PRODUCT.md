@@ -138,7 +138,6 @@ The backend may store:
 - an optional software publisher or Windows package identifier;
 - a user-defined application alias;
 - a user-defined category;
-- whether the application is excluded from tracking;
 - when the application was first and most recently detected.
 
 Publisher or package information may be used to distinguish applications that have identical executable names.
@@ -213,8 +212,8 @@ Exclusions are enforced by the collector before session persistence or synchroni
 
 ### Exclusion Configuration
 
-- User exclusions are synchronized to registered collector devices.
-- Each collector retains the latest exclusion configuration locally for offline use.
+- During Phase 1, exclusions are configured and stored locally on each collector device.
+- Synchronizing exclusions between registered devices is planned for a later phase.
 - An exclusion rule may store enough application identity to recognize the excluded application.
 - Storing an exclusion rule does not permit storing usage history for that application.
 - During Phase 1, browsers can only be excluded as complete applications, not by individual website.
@@ -240,3 +239,104 @@ LeapScope must not:
 - use collected activity for advertising or third-party profiling.
 
 The local SQLite queue contains only sessions awaiting synchronization. Successfully accepted sessions are removed from the queue after confirmation from the backend.
+
+## Collector-To-Database Data Flow
+
+```mermaid
+flowchart TD
+    A[Windows foreground, input, and media APIs]
+    B[Collector session state machine]
+    C{Completed session produced?}
+    D[No queue write]
+    E[Completed activity session]
+    F[(Local SQLite queue)]
+    G[HTTPX batch synchronization]
+    H[FastAPI ingestion endpoint]
+    I[Authenticate device and validate session]
+    J{Event identifier already stored?}
+    K[(PostgreSQL)]
+    L[Return synchronization acknowledgement]
+    M[Remove acknowledged session from SQLite]
+    N[Keep session pending for retry]
+    O[Session-history and analytics endpoints]
+    P[Authenticated user]
+
+    A --> B
+    B --> C
+    C -- No --> D
+    C -- Yes --> E
+    E --> F
+    F --> G
+    G --> H
+    G -- Network failure --> N
+    H -- Retryable server failure --> N
+    N --> G
+    H --> I
+    I --> J
+    J -- New event --> K
+    J -- Duplicate event --> L
+    K --> L
+    L --> M
+    P --> O
+    O --> K
+```
+
+## Flow Rules
+
+1. Windows activity is observed locally by the collector.
+2. Privacy and exclusion rules are applied before creating a session.
+3. Completed sessions are written to SQLite before any upload attempt.
+4. The collector sends queued sessions to FastAPI in batches.
+5. FastAPI authenticates the collector device and validates session ownership and timestamps.
+6. PostgreSQL stores only events whose identifiers have not already been accepted.
+7. Duplicate events are acknowledged without creating duplicate rows.
+8. The collector removes only sessions confirmed by the backend.
+9. Failed uploads remain in SQLite and are retried later.
+10. Users access stored sessions and analytics through FastAPI, never by connecting directly to PostgreSQL.
+
+## UTC Storage And Reporting Timezone
+
+### Timestamp Storage
+
+- The collector records session start and end times as timezone-aware UTC timestamps.
+- The local SQLite queue stores timestamps in ISO 8601 UTC format.
+- The collector sends UTC timestamps to the API.
+- PostgreSQL stores session timestamps using timezone-aware columns.
+- The backend rejects timestamps that do not contain timezone information.
+- Session duration is calculated from the UTC start and end timestamps.
+- Changing a user's timezone never changes the timestamps stored for existing sessions.
+
+Example UTC timestamp:
+
+```text
+2026-08-22T08:30:00Z
+```
+
+### User Reporting Timezone
+
+- Every user has one reporting timezone.
+- The timezone is stored using an IANA timezone name, such as `Europe/Warsaw`, rather than a fixed offset such as `UTC+1`.
+- New users default to `UTC` until another reporting timezone is configured.
+- Raw session-history timestamps are returned in UTC.
+- Daily and other calendar-based analytics use the user's reporting timezone.
+- Changing the reporting timezone may change which local day contains an existing session, but it does not modify the stored session.
+
+IANA timezone names are used because they account for daylight-saving-time changes.
+
+### Calendar Boundaries
+
+- Daily analytics represent local calendar days in the user's reporting timezone.
+- The backend converts the beginning and end of the requested local day into UTC before querying PostgreSQL.
+- A session crossing local midnight contributes time to both affected days.
+- Daylight-saving transitions are handled using timezone-aware boundaries; LeapScope must not assume every local day contains exactly 24 hours.
+
+### Example
+
+```text
+Session in Europe/Warsaw:
+23:50-00:10
+
+Daily allocation:
+Previous day: 10 minutes
+Next day:     10 minutes
+```
