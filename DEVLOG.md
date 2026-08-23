@@ -32,3 +32,7 @@
 ### Session 2 (19:00-19:26)
 - Drew the collector-to-database data flow
 - Defined UTC storage and user reporting-timezone behavior
+
+## DAY 3 - 23.08.2026
+
+### Break Day
