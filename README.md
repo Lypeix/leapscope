@@ -1,5 +1,7 @@
 # LeapScope
 
+## Status: Ongoing
+
 LeapScope is a privacy-conscious Windows activity analytics and notification platform.
 It records foreground application sessions as they happen, synchronizes them to a
 FastAPI backend, produces usage analytics, and monitors selected external sources for
@@ -116,5 +118,3 @@ leapscope/
 |-- DEVLOG.md
 `-- ROADMAP.md
 ```
-
-## Status: Ongoing
