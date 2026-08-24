@@ -39,9 +39,10 @@
 
 ## DAY 4 - 24.08.2026
 
-### Session 1 (07:39-x)
+### Session 1 (07:39-8:19)
 - Created `.venv` virtual environment
 - Temporarily bypassed PowerShell execution policy to activate virtual environment 
 - Venv gives LeapScope its own private python package, so that updates wont interfere with other projects
 - Fixed a setuptools package discovery error caused by lack of `pyproject.toml` configuration
 - Added `FastAPI` n `Uvicorn` as the initial dependencies for `pyproject.toml`
+- Created FastAPI application and configured its asynchronous lifespan handler 
