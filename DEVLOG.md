@@ -36,3 +36,12 @@
 ## DAY 3 - 23.08.2026
 
 ### Break Day
+
+## DAY 4 - 24.08.2026
+
+### Session 1 (07:39-x)
+- Created `.venv` virtual environment
+- Temporarily bypassed PowerShell execution policy to activate virtual environment 
+- Venv gives LeapScope its own private python package, so that updates wont interfere with other projects
+- Fixed a setuptools package discovery error caused by lack of `pyproject.toml` configuration
+- Added `FastAPI` n `Uvicorn` as the initial dependencies for `pyproject.toml`

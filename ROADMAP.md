@@ -35,8 +35,8 @@ Target: a usable, deployed first release by mid-November 2026.
 
 ### FastAPI, Docker, And PostgreSQL
 
-- [ ] Create and activate the virtual environment
-- [ ] Add dependencies gradually to `pyproject.toml`
+- [x] Create and activate the virtual environment
+- [x] Add dependencies gradually to `pyproject.toml`
 - [ ] Create the FastAPI application and lifespan
 - [ ] Add environment-backed settings
 - [ ] Write the API Dockerfile
