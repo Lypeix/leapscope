@@ -45,4 +45,9 @@
 - Venv gives LeapScope its own private python package, so that updates wont interfere with other projects
 - Fixed a setuptools package discovery error caused by lack of `pyproject.toml` configuration
 - Added `FastAPI` n `Uvicorn` as the initial dependencies for `pyproject.toml`
-- Created FastAPI application and configured its asynchronous lifespan handler 
+- Created FastAPI application and configured its asynchronous lifespan handler inside `main.py`
+
+## Session 2 (18:33-x)
+- In `main.py` changed lifespan return annotation from AsyncIterator[None] to AsyncGenerator[None, None] because:
+    1. Pylance gave deprecation warning for asynccontextmanager
+    2. The function uses `async def` and `yield` making it specifically an asynchronous generator
