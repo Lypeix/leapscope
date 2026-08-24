@@ -47,13 +47,13 @@
 - Added `FastAPI` n `Uvicorn` as the initial dependencies for `pyproject.toml`
 - Created FastAPI application and configured its asynchronous lifespan handler inside `app/main.py`
 
-## Session 2 (18:33-19:20)
+## Session 2 (18:33-19:22)
 - Changed lifespan return annotation from AsyncIterator[None] to AsyncGenerator[None, None] in `app/main.py` because:
     1. Pylance gave deprecation warning for asynccontextmanager
     2. The function uses `async def` and `yield` making it specifically an asynchronous generator
 - Added `pydantic-settings` dependency to `pyproject.toml`
 - Installed `pydantic-settings`
 - Configured Settings class inside `app/core/config.py`
-- Cached `get_settings()` with `lru-cache` to avoid the risk of reading two Settings objects
+- Cached `get_settings()` with `lru_cache` so application reuses one settings instance instead of constructing it repeatedly
 - Loaded the cached settings in `app/main.py`
 - Configured the app title and debug mode through environment-backed settings
