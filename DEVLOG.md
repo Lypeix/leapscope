@@ -60,6 +60,11 @@
 
 ## DAY 5 - 25.08.2026
 
-## Session 1 (18:49-19:08)
+## Session 1 (18:49-19:27)
 - Added `.dockerignore` so that Docker doesn't end up using whole .venv, .git, etc. just to build one tiny API image
 - Wrote the API Dockerfile
+- Successfully installed and configured WSL 2
+- Successfully installed and configured Docker Desktop 
+- Built `leapscope-api` Docker image
+- Ran the API inside a container with port `8000` mapped to the host
+- Successfully opened the containerized API documentation through SwaggerUI

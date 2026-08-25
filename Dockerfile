@@ -2,7 +2,7 @@ FROM python:3.13-slim
 
 # prevents python from writing .pyc bytecode files and ensures logs appear immediately
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONNUNBUFFERED=1
+    PYTHONUNBUFFERED=1
 
 
 WORKDIR /leapscope
