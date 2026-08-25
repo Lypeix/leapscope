@@ -57,3 +57,9 @@
 - Cached `get_settings()` with `lru_cache` so application reuses one settings instance instead of constructing it repeatedly
 - Loaded the cached settings in `app/main.py`
 - Configured the app title and debug mode through environment-backed settings
+
+## DAY 5 - 25.08.2026
+
+## Session 1 (18:49-19:08)
+- Added `.dockerignore` so that Docker doesn't end up using whole .venv, .git, etc. just to build one tiny API image
+- Wrote the API Dockerfile
