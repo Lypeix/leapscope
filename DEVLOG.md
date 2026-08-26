@@ -47,7 +47,7 @@
 - Added `FastAPI` n `Uvicorn` as the initial dependencies for `pyproject.toml`
 - Created FastAPI application and configured its asynchronous lifespan handler inside `app/main.py`
 
-## Session 2 (18:33-19:22)
+### Session 2 (18:33-19:22)
 - Changed lifespan return annotation from AsyncIterator[None] to AsyncGenerator[None, None] in `app/main.py` because:
     1. Pylance gave deprecation warning for asynccontextmanager
     2. The function uses `async def` and `yield` making it specifically an asynchronous generator
@@ -60,7 +60,7 @@
 
 ## DAY 5 - 25.08.2026
 
-## Session 1 (18:49-19:27)
+### Session 1 (18:49-19:27)
 - Added `.dockerignore` so that Docker doesn't end up using whole .venv, .git, etc. just to build one tiny API image
 - Wrote the API Dockerfile
 - Successfully installed and configured WSL 2
@@ -68,3 +68,8 @@
 - Built `leapscope-api` Docker image
 - Ran the API inside a container with port `8000` mapped to the host
 - Successfully opened the containerized API documentation through SwaggerUI
+
+## DAY 6 - 26.08.2026
+
+### Session 1 (16:21-x)
+- Fixed formatting for two earlier sessions
