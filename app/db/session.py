@@ -1,4 +1,23 @@
-"""SQLAlchemy engine, session factory, and request dependency.
+from collections.abc import Generator
 
-Implement this module during the PostgreSQL foundation phase.
-"""
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session, sessionmaker
+
+from app.core.config import get_settings
+
+settings = get_settings()
+
+engine = create_engine(
+    settings.database_url,
+    pool_pre_ping=True
+)
+
+SessionFactory = sessionmaker(
+    bind=engine,
+    class_=Session,
+    expire_on_commit=False
+)
+
+def get_db() -> Generator[Session, None, None]:
+    with SessionFactory() as session:
+        yield session

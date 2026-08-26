@@ -71,10 +71,10 @@
 
 ## DAY 6 - 26.08.2026
 
-### Session 1 (16:21-x)
+### Session 1 (16:21-17:51)
 - Fixed the formatting for two earlier sessions
 - Created `.env.example` and `.env`
-- Generated password and confirmed `.env` is ignored, and hidden
+- Generated password and confirmed `.env` is ignored
 - Added `PostgreSQL 18` to `Docker Compose`
 - Configured `PostgreSQL 18` database, user, password, port, volume and healthcheck inside `docker-compose.yml`
 - Successfully started `PostgreSQL` inside `Docker Compose` and verified the database connection through executing a SQL query inside the container
@@ -87,3 +87,9 @@
     - docker compose ps
     - docker compose images
 - Verified that API can find DB through the network using: `docker compose exec api python -c "import socket; print(socket.gethostbyname('db'))"`
+- Added `sqlalchemy` and `psycopg[binary]` dependencies to `pyproject.toml`
+- Installed `sqlalchemy` and `psycopg[binary]` inside the virtual environment
+- Added `database_url` field to `Settings class` inside `app/core/config.py`
+- Created `Base` class inside `app/db/base.py` that inherits ORM behavior from `DeclarativeBase`
+- Configured `SQLAlchemy engine`, `session factory` and `get_db()` inside `app/db/session.py`
+- Scheduled review for this block

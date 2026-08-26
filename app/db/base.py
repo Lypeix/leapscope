@@ -1,4 +1,5 @@
-"""SQLAlchemy declarative base.
+from sqlalchemy.orm import DeclarativeBase
 
-Implement this module while configuring SQLAlchemy and Alembic.
-"""
+class Base(DeclarativeBase):
+    pass
+
