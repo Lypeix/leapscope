@@ -72,9 +72,18 @@
 ## DAY 6 - 26.08.2026
 
 ### Session 1 (16:21-x)
-- Fixed formatting for two earlier sessions
+- Fixed the formatting for two earlier sessions
 - Created `.env.example` and `.env`
 - Generated password and confirmed `.env` is ignored, and hidden
 - Added `PostgreSQL 18` to `Docker Compose`
 - Configured `PostgreSQL 18` database, user, password, port, volume and healthcheck inside `docker-compose.yml`
 - Successfully started `PostgreSQL` inside `Docker Compose` and verified the database connection through executing a SQL query inside the container
+- Added `API service` above `db service` to `docker-compose.yml`
+- Successfully opened the `containerized API documentation` at `http://127.0.0.1:8000/docs`
+- Reviewed `Docker` concepts
+- One of the containers remembered a removed image; recreated the Compose stack using:
+    - docker compose down
+    - docker compose up -d --build
+    - docker compose ps
+    - docker compose images
+- Verified that API can find DB through the network using: `docker compose exec api python -c "import socket; print(socket.gethostbyname('db'))"`

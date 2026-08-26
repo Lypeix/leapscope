@@ -41,8 +41,8 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Add environment-backed settings
 - [x] Write the API Dockerfile
 - [x] Add PostgreSQL to Docker Compose
-- [ ] Add the API to Docker Compose
-- [ ] Learn Docker images, containers, ports, volumes, and networks
+- [x] Add the API to Docker Compose
+- [x] Learn Docker images, containers, ports, volumes, and networks
 - [ ] Configure the SQLAlchemy engine and session factory
 - [ ] Initialize Alembic
 - [ ] Add health and database-readiness endpoints

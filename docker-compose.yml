@@ -1,4 +1,22 @@
 services:
+  
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    environment:
+      LEAPSCOPE_APP_NAME: ${LEAPSCOPE_APP_NAME}
+      LEAPSCOPE_ENVIRONMENT: ${LEAPSCOPE_ENVIRONMENT}
+      LEAPSCOPE_DEBUG: ${LEAPSCOPE_DEBUG}
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      db:
+        condition:  service_healthy
+
   db:
     image: postgres:18-alpine
 
