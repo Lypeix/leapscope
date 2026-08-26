@@ -73,3 +73,8 @@
 
 ### Session 1 (16:21-x)
 - Fixed formatting for two earlier sessions
+- Created `.env.example` and `.env`
+- Generated password and confirmed `.env` is ignored, and hidden
+- Added `PostgreSQL 18` to `Docker Compose`
+- Configured `PostgreSQL 18` database, user, password, port, volume and healthcheck inside `docker-compose.yml`
+- Successfully started `PostgreSQL` inside `Docker Compose` and verified the database connection through executing a SQL query inside the container

@@ -40,7 +40,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Create the FastAPI application and lifespan
 - [x] Add environment-backed settings
 - [x] Write the API Dockerfile
-- [ ] Add PostgreSQL to Docker Compose
+- [x] Add PostgreSQL to Docker Compose
 - [ ] Add the API to Docker Compose
 - [ ] Learn Docker images, containers, ports, volumes, and networks
 - [ ] Configure the SQLAlchemy engine and session factory
