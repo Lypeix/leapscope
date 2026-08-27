@@ -44,7 +44,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Add the API to Docker Compose
 - [x] Learn Docker images, containers, ports, volumes, and networks
 - [x] Configure the SQLAlchemy engine and session factory
-- [ ] Initialize Alembic
+- [x] Initialize Alembic
 - [ ] Add health and database-readiness endpoints
 - [ ] Configure the dedicated PostgreSQL test database
 - [ ] Create the initial pytest and TestClient setup

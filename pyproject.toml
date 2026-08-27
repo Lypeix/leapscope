@@ -9,6 +9,7 @@ description = "Desktop activity analytics and personalized notifications."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "alembic",
     "fastapi",
     "psycopg[binary]",
     "pydantic-settings",
