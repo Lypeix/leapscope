@@ -96,7 +96,7 @@
 
 ## DAY 7 - 27.08.2026
 
-### Session 1 (04:58-x)
+### Session 1 (04:58-08:00)
 - Added missing $ before {POSTGRES_PASSWORD} inside `docker-compose.yml` API service section.
 - Verified database connection using `docker compose exec api python -c "from sqlalchemy import text; from app.db.session import engine; connection = engine.connect(); print(connection.execute(text('SELECT current_database(), current_user')).one()); connection.close()"
 ('leapscope', 'leapscope')`
@@ -121,3 +121,10 @@
 - Successfully ran pytest, both tests passed, albeit with a warning about using httpx instead of the new httpx2
 - Changed httpx dependency to httpx2 dependency inside `pyproject.toml`
 - Uninstalled httpx and installed httpx2
+- Created `.github/workflows/tests.yml` and added GitHub Actions
+- Verified API through docker, it returned "Empty reply from server"
+- Added healthcheck for the API service inside `docker-compose.yml`; it turned out the service was unhealthy; it turned out line 27 had a typo
+- Docker verification completed: API image exists, everything is healthy, `/health` and `/health/ready` both return 200 OK
+- Verified API locally through SwaggerUI and a co-existing terminal; database is reachable and health
+- Next block will be focused on theory and reconstructions where needed
+
