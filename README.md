@@ -21,6 +21,7 @@ See: [Product specification](./PRODUCT.md) - [Roadmap](./ROADMAP.md) - [Developm
 - Dedicated PostgreSQL integration test database
 - Automated testing through GitHub Actions
 
+## Product Scope
 
 ### Activity Pipeline
 
