@@ -45,7 +45,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Learn Docker images, containers, ports, volumes, and networks
 - [x] Configure the SQLAlchemy engine and session factory
 - [x] Initialize Alembic
-- [ ] Add health and database-readiness endpoints
+- [x] Add health and database-readiness endpoints
 - [ ] Configure the dedicated PostgreSQL test database
 - [ ] Create the initial pytest and TestClient setup
 - [ ] Add GitHub Actions for tests

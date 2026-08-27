@@ -104,4 +104,7 @@
 - Initialized `alembic`
 - Connected `alembic` to `PostgreSQL URL`
 - Configured `alembic` autogeneration to inspect `Base.metadata`
-- Verified `alembic` db connection with python -m alembic current`
+- Successfully verified `alembic` db connection with `python -m alembic current`
+- Added API `health router` in `app/api/routers/health.py`
+- Connected `health router` to `app/main.py`
+- Successfully verified `health router`; received status code `200 OK` using `curl.exe -i http://127.0.0.1:8000/health` and `curl.exe -i http://127.0.0.1:8000/health/ready`
