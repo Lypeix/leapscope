@@ -108,3 +108,5 @@
 - Added API `health router` in `app/api/routers/health.py`
 - Connected `health router` to `app/main.py`
 - Successfully verified `health router`; received status code `200 OK` using `curl.exe -i http://127.0.0.1:8000/health` and `curl.exe -i http://127.0.0.1:8000/health/ready`
+- Configured `PostgreSQL` database test service inside `docker-compose.yml`
+- Successfully started `PostgreSQL` database test service and verified its connection
