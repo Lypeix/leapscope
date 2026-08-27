@@ -1,6 +1,6 @@
 # LeapScope
 
-## Status: Ongoing
+## Status: In development
 
 LeapScope is a privacy-conscious Windows activity analytics and notification platform.
 It records foreground application sessions as they happen, synchronizes them to a
