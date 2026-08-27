@@ -96,7 +96,7 @@
 
 ## DAY 7 - 27.08.2026
 
-### Session 1 (04:58-08:00)
+### Session 1 (04:58-08:08)
 - Added missing $ before {POSTGRES_PASSWORD} inside `docker-compose.yml` API service section.
 - Verified database connection using `docker compose exec api python -c "from sqlalchemy import text; from app.db.session import engine; connection = engine.connect(); print(connection.execute(text('SELECT current_database(), current_user')).one()); connection.close()"
 ('leapscope', 'leapscope')`
