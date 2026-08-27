@@ -126,5 +126,7 @@
 - Added healthcheck for the API service inside `docker-compose.yml`; it turned out the service was unhealthy; it turned out line 27 had a typo
 - Docker verification completed: API image exists, everything is healthy, `/health` and `/health/ready` both return 200 OK
 - Verified API locally through SwaggerUI and a co-existing terminal; database is reachable and health
+- Added repository description and topics on GitHub
+- Fixed the typos inside `.github/workflows/tests.yml`
 - Next block will be focused on theory and reconstructions where needed
 
