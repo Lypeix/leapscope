@@ -93,3 +93,7 @@
 - Created `Base` class inside `app/db/base.py` that inherits ORM behavior from `DeclarativeBase`
 - Configured `SQLAlchemy engine`, `session factory` and `get_db()` inside `app/db/session.py`
 - Scheduled review for this block
+
+## DAY 7 - 27.08.2026
+
+### Session 1 (04:58-x)
