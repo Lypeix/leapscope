@@ -47,7 +47,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Initialize Alembic
 - [x] Add health and database-readiness endpoints
 - [x] Configure the dedicated PostgreSQL test database
-- [ ] Create the initial pytest and TestClient setup
+- [x] Create the initial pytest and TestClient setup
 - [ ] Add GitHub Actions for tests
 - [ ] Verify the API locally and through Docker
 

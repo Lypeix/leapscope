@@ -110,3 +110,14 @@
 - Successfully verified `health router`; received status code `200 OK` using `curl.exe -i http://127.0.0.1:8000/health` and `curl.exe -i http://127.0.0.1:8000/health/ready`
 - Configured `PostgreSQL` database test service inside `docker-compose.yml`
 - Successfully started `PostgreSQL` database test service and verified its connection
+- Added `development dependencies` to `pyproject.toml`
+- Installed `development dependencies`
+- Created `conftest.py` and `TestClient` setup
+- Added initial pytest inside `tests/integration/test_health.py`
+- Verified that test database is healthy using `docker compose --profile test up -d --wait test-db`
+- Unsuccessfully ran pytest
+- Changed the test URL in `tests/conftest.py` to match the exact IPv4 address published by Compose
+- Added a short timeout to the test URL incase a test gets somehow blocked at 50% again
+- Successfully ran pytest, both tests passed, albeit with a warning about using httpx instead of the new httpx2
+- Changed httpx dependency to httpx2 dependency inside `pyproject.toml`
+- Uninstalled httpx and installed httpx2

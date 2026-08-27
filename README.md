@@ -7,6 +7,8 @@ It records foreground application sessions as they happen, synchronizes them to 
 FastAPI backend, produces usage analytics, and monitors selected external sources for
 relevant updates.
 
+See: [DEVLOG.md](./DEVLOG.md)
+
 ## Product Scope
 
 LeapScope contains two independent but connected pipelines.
