@@ -1,17 +1,26 @@
 # LeapScope
 
+[![Tests](https://github.com/Lypeix/leapscope/actions/workflows/tests.yml/badge.svg)](https://github.com/Lypeix/leapscope/actions/workflows/tests.yml)
+
 ## Status: In development
 
-LeapScope is a privacy-conscious Windows activity analytics and notification platform.
-It records foreground application sessions as they happen, synchronizes them to a
-FastAPI backend, produces usage analytics, and monitors selected external sources for
-relevant updates.
+LeapScope is an in-development, privacy-conscious Windows activity analytics and
+notification platform. The current implementation focuses on its containerized
+backend foundation. Windows activity collection, offline synchronization, analytics,
+and content notifications are planned for subsequent phases.
 
-See: [DEVLOG.md](./DEVLOG.md)
+See: [Product specification](./PRODUCT.md) - [Roadmap](./ROADMAP.md) - [Development log](./DEVLOG.md)
 
-## Product Scope
+## Current Implementation
 
-LeapScope contains two independent but connected pipelines.
+- Containerized FastAPI and PostgreSQL services
+- Environment-backed application settings
+- SQLAlchemy engine and session management
+- Alembic migration infrastructure
+- Liveness and database-readiness endpoints
+- Dedicated PostgreSQL integration test database
+- Automated testing through GitHub Actions
+
 
 ### Activity Pipeline
 
@@ -29,6 +38,7 @@ them in idempotent batches.
 
 The backend will provide daily, weekly, and monthly usage totals, category breakdowns,
 trends, session history, and a monthly Top 5 application ranking.
+
 
 ### Content Pipeline
 
@@ -50,40 +60,31 @@ will not record keystrokes or capture screen contents. Users will be able to exc
 rename, and categorize applications, and synchronized data will belong to the
 authenticated user and device that produced it.
 
-## Planned Technology
 
-### Backend
+## Technology
+
+### Implemented
 
 - Python
 - FastAPI and Uvicorn
 - Pydantic v2 and pydantic-settings
 - SQLAlchemy 2.0 and Alembic
 - PostgreSQL with psycopg 3
-- Celery, Celery Beat, and Redis
-- HTTPX and RSS/Atom integrations
-
-### Windows Collector
-
-- Python
-- pywin32 and psutil
-- SQLite offline queue
-- HTTPX synchronization
-- PyInstaller packaging
-
-### Frontend
-
-- Jinja2
-- Semantic HTML and responsive CSS
-- Vanilla JavaScript and Fetch API
-- Chart.js
-
-### Quality
-
-- pytest and pytest-cov
-- Ruff
-- mypy
+- pytest
 - GitHub Actions
 - Docker Compose
+
+### Planned
+
+- Celery, Celery Beat, and Redis
+- HTTPX and RSS/Atom integrations
+- pywin32 and psutil
+- SQLite collector queue
+- PyInstaller
+- Jinja2
+- HTML, CSS, and JavaScript
+- Chart.js
+
 
 ## Project Structure
 
