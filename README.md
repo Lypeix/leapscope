@@ -40,6 +40,44 @@ them in idempotent batches.
 The backend will provide daily, weekly, and monthly usage totals, category breakdowns,
 trends, session history, and a monthly Top 5 application ranking.
 
+## How to Start
+
+### Requirements
+
+- Docker Desktop running with Linux containers
+
+### Run with Docker Compose
+
+1. Create the local environment file:
+
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+
+2. Build and start the API and PostgreSQL:
+
+   ```powershell
+   docker compose up -d --build --wait
+   ```
+
+3. Apply all database migrations:
+
+   ```powershell
+   docker compose exec api python -m alembic upgrade head
+   ```
+
+4. Open the API documentation at <http://127.0.0.1:8000/docs>.
+
+The liveness and database-readiness endpoints are available at
+<http://127.0.0.1:8000/health> and <http://127.0.0.1:8000/health/ready>.
+
+Stop the services with:
+
+```powershell
+docker compose down
+```
+
+The PostgreSQL data remains in its Docker volume after the services stop.
 
 ### Content Pipeline
 
@@ -91,34 +129,62 @@ authenticated user and device that produced it.
 
 ```text
 leapscope/
+|-- .github/
+|   `-- workflows/
+|       `-- tests.yml
+|-- alembic/
+|   |-- README
+|   |-- env.py
+|   `-- script.py.mako
 |-- app/
 |   |-- api/
-|   |   `-- routers/
+|   |   |-- routers/
+|   |   |   `-- health.py
+|   |   `-- dependencies.py
 |   |-- core/
+|   |   |-- config.py
+|   |   |-- logging_config.py
+|   |   `-- security.py
 |   |-- db/
+|   |   |-- base.py
+|   |   `-- session.py
 |   |-- integrations/
 |   |-- models/
 |   |-- repositories/
 |   |-- schemas/
 |   |-- services/
 |   |-- static/
+|   |   |-- css/
+|   |   |   `-- app.css
+|   |   `-- js/
+|   |       `-- app.js
 |   |-- tasks/
+|   |   `-- celery_app.py
 |   |-- templates/
 |   `-- main.py
 |-- collector/
 |   |-- activity/
 |   |-- local_queue/
 |   |-- synchronization/
+|   |-- config.py
 |   `-- main.py
 |-- tests/
 |   |-- collector/
 |   |-- integration/
-|   `-- unit/
-|-- .github/workflows/
+|   |   `-- test_health.py
+|   |-- unit/
+|   `-- conftest.py
+|-- .dockerignore
+|-- .env.example
+|-- .gitignore
+|-- alembic.ini
+|-- DEVLOG.md
 |-- docker-compose.yml
 |-- Dockerfile
 |-- PRODUCT.md
 |-- pyproject.toml
-|-- DEVLOG.md
+|-- README.md
 `-- ROADMAP.md
 ```
+
+

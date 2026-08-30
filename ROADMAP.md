@@ -53,11 +53,11 @@ Target: a usable, deployed first release by mid-November 2026.
 
 ### Reconstruction And Buffer
 
-- [ ] Reconstruct the Docker and database foundation locally
-- [ ] Explain how the API reaches PostgreSQL through the Docker network
-- [ ] Explain what persists when containers are removed
-- [ ] Review and document encountered failures
-- [ ] Use this milestone as recovery time if earlier work took longer
+- [x] Reconstruct the Docker and database foundation locally
+- [x] Explain how the API reaches PostgreSQL through the Docker network
+- [x] Explain what persists when containers are removed
+- [x] Review and document encountered failures
+- [x] Use this milestone as recovery time if earlier work took longer
 
 ### Users, Devices, And Authentication
 
