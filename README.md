@@ -2,7 +2,16 @@
 
 [![Tests](https://github.com/Lypeix/leapscope/actions/workflows/tests.yml/badge.svg)](https://github.com/Lypeix/leapscope/actions/workflows/tests.yml)
 
-## Status: In development
+## Navigation
+
+- [Current Implementation](#current-implementation)
+- [Product Scope](#product-scope)
+- [Privacy Boundary](#privacy-boundary)
+- [Technology](#technology)
+- [Project Structure](#project-structure)
+- [How to Start](#how-to-start)
+
+## Status
 
 LeapScope is an in-development, privacy-conscious Windows activity analytics and
 notification platform. The current implementation focuses on its containerized
