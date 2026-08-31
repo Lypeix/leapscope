@@ -130,3 +130,16 @@
 - Fixed the typos inside `.github/workflows/tests.yml`
 - Next block will be focused on theory and reconstructions where needed
 
+## DAY 10 - 30.08.2026
+- Reconstructed `docker-compose.yml` and `app/db/session.py`
+- Reviewed Docker and SQLAlchemy concepts
+- Added an instruction to README regarding how to start the app
+- Added README navigation
+
+## DAY 11 - 31.08.2026
+
+### Session (19:23-x)
+- Created `device.py` and `user.py` models inside `app/models`
+- Created basic `app/models/user.py` structure
+- Created device-app relationship in advance
+ 
