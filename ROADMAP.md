@@ -61,7 +61,7 @@ Target: a usable, deployed first release by mid-November 2026.
 
 ### Users, Devices, And Authentication
 
-- [ ] Create `User` and `Device` models
+- [x] Create `User` and `Device` models
 - [ ] Generate and apply their migration
 - [ ] Create registration and login schemas
 - [ ] Hash passwords using Argon2

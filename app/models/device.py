@@ -23,7 +23,7 @@ class Device(Base):
 
     user_id: Mapped[UUID] = mapped_column(
         Uuid,
-        ForeignKey("users.id", on_deletion="CASCADE"),
+        ForeignKey("users.id", ondelete="CASCADE"),
         index=True
     )
 

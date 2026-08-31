@@ -138,7 +138,7 @@
 
 ## DAY 11 - 31.08.2026
 
-### Session (19:23-20:16)
+### Session (19:23-20:17)
 - Created `device.py` and `user.py` models inside `app/models`
 - Created user-device relationship in advance
 - Created basic `app/models/device.py` structure
