@@ -138,10 +138,11 @@
 
 ## DAY 11 - 31.08.2026
 
-### Session (19:23-20:17)
+### Session (19:23-20:21)
 - Created `device.py` and `user.py` models inside `app/models`
 - Created user-device relationship in advance
 - Created basic `app/models/device.py` structure
 - Created a list of package's intended exports inside `app/models/__init__.py` 
 - Added key files navigation window to `README.md`
 - Updated `README` navigation to feature key files addition
+- Fixed typos
