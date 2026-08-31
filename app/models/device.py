@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 class Device(Base):
     __tablename__ = "devices"
 
-    id: Mapped(UUID) = mapped_column(
+    id: Mapped[UUID] = mapped_column(
         Uuid,
         primary_key=True,
         default=uuid4
