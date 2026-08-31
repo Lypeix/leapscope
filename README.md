@@ -10,6 +10,7 @@
 - [Technology](#technology)
 - [Project Structure](#project-structure)
 - [How to Start](#how-to-start)
+- [Key files](#key-files)
 
 ## Status
 
@@ -196,3 +197,16 @@ docker compose down
 ```
 
 The PostgreSQL data remains in its Docker volume after the services stop.
+
+## Key Files
+
+| File | Purpose |
+|---|---|
+| [`app/main.py`](./app/main.py) | Creates and configures the FastAPI application |
+| [`app/core/config.py`](./app/core/config.py) | Loads environment-backed settings |
+| [`app/db/session.py`](./app/db/session.py) | Configures SQLAlchemy sessions |
+| [`app/api/routers/health.py`](./app/api/routers/health.py) | Provides health and readiness endpoints |
+| [`alembic/env.py`](./alembic/env.py) | Connects Alembic to the application database |
+| [`docker-compose.yml`](./docker-compose.yml) | Runs the API and PostgreSQL services |
+| [`tests/integration/test_health.py`](./tests/integration/test_health.py) | Tests API and database readiness |
+| [`.github/workflows/tests.yml`](./.github/workflows/tests.yml) | Runs tests in GitHub Actions |
