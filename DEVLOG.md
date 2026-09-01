@@ -138,7 +138,7 @@
 
 ## DAY 11 - 31.08.2026
 
-### Session (19:23-20:21)
+### Session 1 (19:23-20:21)
 - Created `device.py` and `user.py` models inside `app/models`
 - Created user-device relationship in advance
 - Created basic `app/models/device.py` structure
@@ -146,3 +146,10 @@
 - Added key files navigation window to `README.md`
 - Updated `README` navigation to feature key files addition
 - Fixed typos
+
+## DAY 12 - 1.09.2026
+
+### Session 1 (19:32-19:46)
+- Increased character limit (from `100` to `255`) for token-hash and password-hash inside `app/models/device.py` n `app/models/users.py` 
+- Generated and implemented an `alembic migration`
+- Verified the alembic migration was implemented successfully, that models match and that tables exist

@@ -29,7 +29,7 @@ class User(Base):
         nullable=False
     )
 
-    password_hash: Mapped[str] = mapped_column(String(100))
+    password_hash: Mapped[str] = mapped_column(String(255))
 
     reporting_timezone: Mapped[str] = mapped_column(
         String(70),

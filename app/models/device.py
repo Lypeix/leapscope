@@ -30,7 +30,7 @@ class Device(Base):
     name: Mapped[str] = mapped_column(String(100))
 
     token_hash: Mapped[str] = mapped_column(
-        String(150),
+        String(255),
         unique=True
     )
 
