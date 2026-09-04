@@ -147,16 +147,21 @@
 - Updated `README` navigation to feature key files addition
 - Fixed typos
 
-## DAY 12 - 1.09.2026
+## DAY 12 - 01.09.2026
 
 ### Session 1 (19:32-19:46)
 - Increased character limit (from `100` to `255`) for token-hash and password-hash inside `app/models/device.py` n `app/models/users.py` 
 - Generated and implemented an `alembic migration`
 - Verified the alembic migration was implemented successfully, that models match and that tables exist
 
-## DAY 14 - 3.09.2026
+## DAY 14 - 03.09.2026
 
 ### Session 1 (18:45-19:05)
 - Added `alembic.ini` and the `alembic/` to `Dockerfile` 
 - Github Actions now `apply alembic database migrations `
 - Github Actions now `check alembic database migrations`
+
+## DAY 15 - 04.09.2026
+
+### Session 1 (03:53-x)
+- Added and installed `pydantic[email]` and `tzdata` dependencies to `pyproject.toml`
