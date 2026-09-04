@@ -172,4 +172,5 @@
 - Added timezone validation using ZoneInfo
 - Configured `UserRegister` schema
 - Configured `UserLogin` schema
-
+- Exposed `UserLogin` and `UserRegister` through the `app.schemas` interface inside `app/schemas/__init__`
+- Successfully tested the schemas
