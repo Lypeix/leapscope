@@ -163,7 +163,7 @@
 
 ## DAY 15 - 04.09.2026
 
-### Session 1 (03:53-x)
+### Session 1 (03:53-05:17)
 - Added and installed `pydantic[email]` and `tzdata` dependencies to `pyproject.toml`
 - Created `auth.py` inside `app/schemas`
 - Added normalized Email handling with EmailStr
@@ -172,5 +172,10 @@
 - Added timezone validation using ZoneInfo
 - Configured `UserRegister` schema
 - Configured `UserLogin` schema
-- Exposed `UserLogin` and `UserRegister` through the `app.schemas` interface inside `app/schemas/__init__`
+- Exposed `UserLogin` and `UserRegister` through the `app.schemas` package interface inside `app/schemas/__init__`
 - Successfully tested the schemas
+- Deleted and recreated a stale test container that failed pytest 
+
+- Added and installed `pwdlib[argon2]` dependency
+- Added password hashing and password-validation helpers in `app/core/security`
+- Added unit tests covering Argon2id hashing, password verification and randomized salts

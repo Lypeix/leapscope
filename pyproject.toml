@@ -16,7 +16,8 @@ dependencies = [
     "sqlalchemy",
     "uvicorn[standard]",
     "pydantic[email]",
-    "tzdata"
+    "tzdata",
+    "pwdlib[argon2]",
 ]
 
 [project.optional-dependencies]

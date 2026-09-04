@@ -64,7 +64,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Create `User` and `Device` models
 - [x] Generate and apply their migration
 - [x] Create registration and login schemas
-- [ ] Hash passwords using Argon2
+- [x] Hash passwords using Argon2
 - [ ] Issue and validate JWT access tokens
 - [ ] Add `POST /auth/register`
 - [ ] Add `POST /auth/login`
