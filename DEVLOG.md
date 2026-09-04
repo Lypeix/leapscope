@@ -165,3 +165,11 @@
 
 ### Session 1 (03:53-x)
 - Added and installed `pydantic[email]` and `tzdata` dependencies to `pyproject.toml`
+- Created `auth.py` inside `app/schemas`
+- Added normalized Email handling with EmailStr
+- Added password handling with SecretStr
+- Added a field validator support for `reporting_timezone` with `UTC` set as default
+- Added timezone validation using ZoneInfo
+- Configured `UserRegister` schema
+- Configured `UserLogin` schema
+
