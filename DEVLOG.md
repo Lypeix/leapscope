@@ -1,5 +1,21 @@
 # LeapScope Development Log
 
+## Navigation
+
+- [Day 1 - 21.08.2026](#day-1---21082026)
+- [Day 2 - 22.08.2026](#day-2---22082026)
+- [Day 3 - 23.08.2026](#day-3---23082026)
+- [Day 4 - 24.08.2026](#day-4---24082026)
+- [Day 5 - 25.08.2026](#day-5---25082026)
+- [Day 6 - 26.08.2026](#day-6---26082026)
+- [Day 7 - 27.08.2026](#day-7---27082026)
+- [Day 10 - 30.08.2026](#day-10---30082026)
+- [Day 11 - 31.08.2026](#day-11---31082026)
+- [Day 12 - 01.09.2026](#day-12---01092026)
+- [Day 14 - 03.09.2026](#day-14---03092026)
+- [Day 15 - 04.09.2026](#day-15---04092026)
+- [Day 16 - 05.09.2026](#day-15---05092026)
+
 ## Day 1 - 21.08.2026 
 
 ### Session 1 (18:05-20:15)
@@ -13,7 +29,7 @@
 - Defined the Phase 1 finish line and milestone-based roadmap
 - Added placeholder files while leaving learning-critical configuration unimplemented
 
-## Day 2 - 22.08.2026
+## Day  2 - 22.08.2026
 
 ### Session 1 (08:05-09:24)
 - Created `PRODUCT.md`
@@ -33,11 +49,11 @@
 - Drew the collector-to-database data flow
 - Defined UTC storage and user reporting-timezone behavior
 
-## DAY 3 - 23.08.2026
+## Day 3 - 23.08.2026
 
 ### Break Day
 
-## DAY 4 - 24.08.2026
+## Day 4 - 24.08.2026
 
 ### Session 1 (07:39-8:19)
 - Created `.venv` virtual environment
@@ -58,7 +74,7 @@
 - Loaded the cached settings in `app/main.py`
 - Configured the app title and debug mode through environment-backed settings
 
-## DAY 5 - 25.08.2026
+## Day 5 - 25.08.2026
 
 ### Session 1 (18:49-19:27)
 - Added `.dockerignore` so that Docker doesn't end up using whole .venv, .git, etc. just to build one tiny API image
@@ -69,7 +85,7 @@
 - Ran the API inside a container with port `8000` mapped to the host
 - Successfully opened the containerized API documentation through SwaggerUI
 
-## DAY 6 - 26.08.2026
+## Day 6 - 26.08.2026
 
 ### Session 1 (16:21-17:51)
 - Fixed the formatting for two earlier sessions
@@ -130,13 +146,13 @@
 - Fixed the typos inside `.github/workflows/tests.yml`
 - Next block will be focused on theory and reconstructions where needed
 
-## DAY 10 - 30.08.2026
+## Day 10 - 30.08.2026
 - Reconstructed `docker-compose.yml` and `app/db/session.py`
 - Reviewed `Docker` and `SQLAlchemy` concepts
 - Added an instruction to `README` regarding how to start the app
 - Added `README` navigation
 
-## DAY 11 - 31.08.2026
+## Day 11 - 31.08.2026
 
 ### Session 1 (19:23-20:21)
 - Created `device.py` and `user.py` models inside `app/models`
@@ -147,21 +163,21 @@
 - Updated `README` navigation to feature key files addition
 - Fixed typos
 
-## DAY 12 - 01.09.2026
+## Day 12 - 01.09.2026
 
 ### Session 1 (19:32-19:46)
 - Increased character limit (from `100` to `255`) for token-hash and password-hash inside `app/models/device.py` n `app/models/users.py` 
 - Generated and implemented an `alembic migration`
 - Verified the alembic migration was implemented successfully, that models match and that tables exist
 
-## DAY 14 - 03.09.2026
+## Day 14 - 03.09.2026
 
 ### Session 1 (18:45-19:05)
 - Added `alembic.ini` and the `alembic/` to `Dockerfile` 
 - Github Actions now `apply alembic database migrations `
 - Github Actions now `check alembic database migrations`
 
-## DAY 15 - 04.09.2026
+## Day 15 - 04.09.2026
 
 ### Session 1 (03:53-05:17)
 - Added and installed `pydantic[email]` and `tzdata` dependencies to `pyproject.toml`
@@ -179,3 +195,11 @@
 - Added and installed `pwdlib[argon2]` dependency
 - Added password hashing and password-validation helpers in `app/core/security`
 - Added unit tests covering Argon2id hashing, password verification and randomized salts
+
+## Day 16 - 05.09.2026
+
+### Session 1 (14:50-x)
+- Added navigation for:
+    - `DEVLOG`
+    - `PRODUCT`
+    - `ROADMAP`

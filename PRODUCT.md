@@ -1,5 +1,20 @@
 # LeapScope Product Contract
 
+## Navigation
+
+- [Phase 1 User Workflow](#phase-1-user-workflow)
+- [Offline Workflow](#offline-workflow)
+- [Phase 1 Interface](#phase-1-interface)
+- [Activity Session Definition](#activity-session-definition)
+- [Idle And Media Activity](#idle-and-media-activity)
+- [Multiple-Window Behavior](#multiple-window-behavior)
+- [Activity Session Lifecycle](#activity-session-lifecycle)
+- [Application Information Storage](#application-information-storage)
+- [Application Exclusion And Privacy Rules](#application-exclusion-and-privacy-rules)
+- [Collector-To-Database Data Flow](#collector-to-database-data-flow)
+- [Flow Rules](#flow-rules)
+- [UTC Storage And Reporting Timezone](#utc-storage-and-reporting-timezone)
+
 ## Phase 1 User Workflow
 
 1. The user starts the LeapScope backend and Windows collector.

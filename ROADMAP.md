@@ -4,6 +4,20 @@
 
 Target: a usable, deployed first release by mid-November 2026.
 
+## Navigation
+
+- [Phase 1 Finish Line](#phase-1-finish-line)
+- [Product Contract](#product-contract)
+- [FastAPI, Docker, And PostgreSQL](#fastapi-docker-and-postgresql)
+- [Reconstruction And Buffer](#reconstruction-and-buffer)
+- [Users, Devices, And Authentication](#users-devices-and-authentication)
+- [Review And Buffer](#review-and-buffer)
+- [Activity Storage And Ingestion](#activity-storage-and-ingestion)
+- [Windows Collector Prototype](#windows-collector-prototype)
+- [Offline Queue And Synchronization](#offline-queue-and-synchronization)
+- [First Analytics Endpoint](#first-analytics-endpoint)
+- [Integration And Demonstration](#integration-and-demonstration)
+
 ## Phase 1: First End-to-End Activity Pipeline
 
 ### Phase 1 Finish Line
