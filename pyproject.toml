@@ -18,6 +18,7 @@ dependencies = [
     "pydantic[email]",
     "tzdata",
     "pwdlib[argon2]",
+    "pyjwt",
 ]
 
 [project.optional-dependencies]

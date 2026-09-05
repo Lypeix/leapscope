@@ -203,3 +203,8 @@
     - `DEVLOG`
     - `PRODUCT`
     - `ROADMAP`
+- Added, installed and verified `pyjwt` dependency 
+- Generated and saved secret signing key for jwt
+- Added jwt settings in `app/core/config`
+- Supplied the jwt settings to `docker-compose` and `github/workflows/tests`
+- Added token creation inside `app/core/security`

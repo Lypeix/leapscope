@@ -33,6 +33,7 @@ jobs:
       LEAPSCOPE_DEBUG: "false"
       LEAPSCOPE_DATABASE_URL: postgresql+psycopg://leapscope_test:test-password@127.0.0.1:5432/leapscope_test
       LEAPSCOPE_TEST_DATABASE_URL: postgresql+psycopg://leapscope_test:test-password@127.0.0.1:5432/leapscope_test
+      LEAPSCOPE_JWT_SECRET_KEY:  "ci-only-signing-key-never-use-in-production-123456789abcdef"
 
     
     steps:
