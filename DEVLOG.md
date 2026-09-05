@@ -198,7 +198,7 @@
 
 ## Day 16 - 05.09.2026
 
-### Session 1 (14:50-x)
+### Session 1 (14:50-15:58)
 - Added navigation for:
     - `DEVLOG`
     - `PRODUCT`

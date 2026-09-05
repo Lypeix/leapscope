@@ -44,3 +44,26 @@ def create_access_token(user_id: UUID) -> str:
         settings.jwt_secret_key.get_secret_value(),
         algorithm=JWT_ALGORITHM
     )
+
+def decode_access_token(token: str) -> UUID:
+    settings = get_settings()
+
+    try:
+        payload = jwt.decode(
+            token,
+            settings.jwt_secret_key.get_secret_value(),
+            algorithms=[JWT_ALGORITHM],
+            options={
+                "require": ["sub", "iat", "exp", "token_type"]
+            }
+        )
+
+        if payload["token_type"] != "access":
+            raise InvalidTokenError("Expected an access token")
+
+        return UUID(payload["sub"])
+
+    except (ValueError, TypeError, OverflowError) as error:
+        raise InvalidTokenError(
+            "invalid access token claims"
+        ) from error
