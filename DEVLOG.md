@@ -219,13 +219,13 @@
 - Added expired JWT rejection test
 - Added JWT tampering test
 
-### Session 2 (12:34-13:41)
+### Session 2 (12:34-13:42)
 - Created `user.py` module inside `app/schemas` sub-package
 - Created `UserRead` class inside `user.py`
 - Added `UserRead` class to `app/schemas/__init__.py` 
 - Created `auth.py` module inside `app/api/routers`
 - Created `POST /auth register` endpoint
-- Connected auth router` endpoint to `main.py`
+- Connected auth router `endpoint to `main.py`
 - Created `TokenResponse` class inside `app/schemas/auth.py`
 - Added `TokenResponse` to `app/schemas/__init__.py`
 - Created `POST /auth/login` endpoint
