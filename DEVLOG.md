@@ -215,3 +215,5 @@
 ### Session 1 (07:55-x)
 - Added a pytest fixture for JWT settings
 - Added reusable claims function for reusable JWT validation tests
+- Added JWT access token round trip test
+- Added expired JWT rejection test

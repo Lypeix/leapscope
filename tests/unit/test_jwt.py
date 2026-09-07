@@ -43,3 +43,32 @@ def claims():
 
 def sign(claims):
     return jwt.encode(claims, TEST_KEY, algorithm="HS256")
+
+
+def test_access_token_round_trip(jwt_settings):
+    user_id = uuid4()
+
+    token = security.create_access_token(user_id)
+    payload = jwt.decode(
+        token,
+        TEST_KEY,
+        algorithms=["HS256"]
+    )
+
+    assert security.decode_access_token(token) == user_id
+
+    assert payload["exp"] - payload["iat"] == (
+        jwt_settings.access_token_expire_minutes * 60
+    )
+
+
+def test_expired_token_is_rejected(claims):
+    claims["iat"] = datetime.now(UTC) - timedelta(hours=1)
+    claims["exp"] = datetime.now(UTC) - timedelta(minutes=1)
+
+    token = sign(claims)
+
+    with pytest.raises(InvalidTokenError):
+        security.decode_access_token(token)
+
+        
