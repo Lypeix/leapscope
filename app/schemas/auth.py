@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Literal
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from pydantic import (
@@ -37,3 +37,9 @@ class UserLogin(BaseModel):
 
     email: NormalizedEmail = Field(max_length=300)
     password: SecretStr = Field(min_length=10, max_length=100)
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: Literal["bearer"] = "bearer"
+    
