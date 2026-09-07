@@ -15,6 +15,7 @@
 - [Day 14 - 03.09.2026](#day-14---03092026)
 - [Day 15 - 04.09.2026](#day-15---04092026)
 - [Day 16 - 05.09.2026](#day-16---05092026)
+- [Day 18 - 05.09.2026](#day-18---07092026)
 
 ## Day 1 - 21.08.2026 
 
@@ -208,3 +209,9 @@
 - Added jwt settings in `app/core/config`
 - Supplied the jwt settings to `docker-compose` and `github/workflows/tests`
 - Added token creation inside `app/core/security`
+
+## Day 18 - 07.09.2026
+
+### Session 1 (07:55-x)
+- Added a pytest fixture for JWT settings
+- Added reusable claims function for reusable JWT validation tests
