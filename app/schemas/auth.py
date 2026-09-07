@@ -25,7 +25,7 @@ class UserRegister(BaseModel):
     def validate_reporting_timezone(cls, value: str) -> str:
         try:
             ZoneInfo(value)
-        except (ZoneInfoNotFoundError,ValueError) as error:
+        except (ZoneInfoNotFoundError, ValueError) as error:
             raise ValueError(
                 "Timezone not found"
             ) from error

@@ -80,7 +80,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Create registration and login schemas
 - [x] Hash passwords using Argon2
 - [x] Issue and validate JWT access tokens
-- [ ] Add `POST /auth/register`
+- [x] Add `POST /auth/register`
 - [ ] Add `POST /auth/login`
 - [ ] Add `GET /users/me`
 - [ ] Add collector-device registration

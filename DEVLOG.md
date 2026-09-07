@@ -218,3 +218,11 @@
 - Added JWT access token round trip test
 - Added expired JWT rejection test
 - Added JWT tampering test
+
+### Session 2 (12:34-x)
+- Created `user.py` module inside `app/schemas` sub-package
+- Created `UserRead` class inside `user.py`
+- Added `UserRead` class to `app/schemas/__init__.py` 
+- Created `auth.py` module inside `app/api/routers`
+- Created `POST /auth register` endpoint
+- Connected `POST /auth register` endpoint to `main.py`
