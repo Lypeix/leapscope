@@ -24,7 +24,7 @@ router = APIRouter(
 )
 def register(
     data: UserRegister,
-    session: Annotated[Session, Depends(get_db())],
+    session: Annotated[Session, Depends(get_db)],
 ) -> User:
     user = User(
         email=data.email,
@@ -63,7 +63,7 @@ def register(
 )
 def login(
     data: UserLogin,
-    session: Annotated[Session, Depends(get_db())]
+    session: Annotated[Session, Depends(get_db)]
 ) -> TokenResponse:
     user = session.scalar(
         select(User).where(User.email == data.email)
