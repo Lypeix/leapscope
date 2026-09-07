@@ -71,4 +71,20 @@ def test_expired_token_is_rejected(claims):
     with pytest.raises(InvalidTokenError):
         security.decode_access_token(token)
 
+
+def test_modified_payload_is_rejected(claims):
+    original_token = sign(claims)
+    header, _, original_signature = original_token.split(".")
+
+    claims["sub"] = str(uuid4())
+    changed_token = sign(claims)
+    _, changed_payload, _ = changed_token.split(".")
+
+    tampered_token = (
+        f"{header}.{changed_payload}.{original_signature}"
+    )
+
+    with pytest.raises(InvalidTokenError):
+        security.decode_access_token(tampered_token)
+
         

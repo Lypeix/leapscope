@@ -212,8 +212,9 @@
 
 ## Day 18 - 07.09.2026
 
-### Session 1 (07:55-x)
+### Session 1 (07:55-8:41)
 - Added a pytest fixture for JWT settings
 - Added reusable claims function for reusable JWT validation tests
 - Added JWT access token round trip test
 - Added expired JWT rejection test
+- Added JWT tampering test

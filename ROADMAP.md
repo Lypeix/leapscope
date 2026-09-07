@@ -79,7 +79,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Generate and apply their migration
 - [x] Create registration and login schemas
 - [x] Hash passwords using Argon2
-- [ ] Issue and validate JWT access tokens
+- [x] Issue and validate JWT access tokens
 - [ ] Add `POST /auth/register`
 - [ ] Add `POST /auth/login`
 - [ ] Add `GET /users/me`
