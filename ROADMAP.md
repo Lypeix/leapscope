@@ -81,7 +81,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Hash passwords using Argon2
 - [x] Issue and validate JWT access tokens
 - [x] Add `POST /auth/register`
-- [ ] Add `POST /auth/login`
+- [x] Add `POST /auth/login`
 - [ ] Add `GET /users/me`
 - [ ] Add collector-device registration
 - [ ] Generate revocable collector tokens
