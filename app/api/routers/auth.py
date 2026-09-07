@@ -44,7 +44,7 @@ def register(
             select(User.id).where(User.email == data.email)
         )
 
-        if existing_user_id is None:
+        if existing_user_id is not None:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="This email is already registered on an existing account"
@@ -55,4 +55,9 @@ def register(
     session.refresh(user)
     return user
 
-    
+
+@router.post(
+    "/login",
+    response_model=UserRead,
+    status_code=status.HTTP_201_CREATED
+)
