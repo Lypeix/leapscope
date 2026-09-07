@@ -24,7 +24,7 @@ router = APIRouter(
 )
 def register(
     data: UserRegister,
-    session: Annotated[Session, Depends(get_db)],
+    session: Annotated[Session, Depends(get_db())],
 ) -> User:
     user = User(
         email=data.email,
