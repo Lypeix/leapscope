@@ -232,5 +232,9 @@
 
 ## Day 19 - 08.09.2026
 
-### Session 1 (18:55-x)
+### Session 1 (18:55-19:20)
 - Added a reusable authentication dependency inside `app/api/dependencies.py`
+- Created `users.py` module inside `app/api/routers.py`
+- Created `GET /users/me` endpoint
+- Linked `GET /users/me` to `main.py`
+- Rebuilt Docker Compose stack to include `GET /users/me` endpoint

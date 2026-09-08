@@ -82,7 +82,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Issue and validate JWT access tokens
 - [x] Add `POST /auth/register`
 - [x] Add `POST /auth/login`
-- [ ] Add `GET /users/me`
+- [x] Add `GET /users/me`
 - [ ] Add collector-device registration
 - [ ] Generate revocable collector tokens
 - [ ] Store collector tokens as hashes
