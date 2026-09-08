@@ -229,3 +229,8 @@
 - Created `TokenResponse` class inside `app/schemas/auth.py`
 - Added `TokenResponse` to `app/schemas/__init__.py`
 - Created `POST /auth/login` endpoint
+
+## Day 19 - 08.09.2026
+
+### Session 1 (18:55-x)
+- Added a reusable authentication dependency inside `app/api/dependencies.py`
