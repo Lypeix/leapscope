@@ -424,3 +424,11 @@
 - Allowed the `token_hash` attribute for `Device` ORM class inside `app/models/devices.py` module to contain `SQL NULL` for when no collector token has been issued
 
 - Generated a new Alembic migration to apply the `token_hash` update to the existing PostgreSQL schema
+
+- Successfully inspected and applied the migration upgrade inside `alembic/versions`
+
+- Created `device.py` module inside `app/schemas`
+
+- Created `DeviceRegister` Pydantic model inside `device.py` 
+
+- Created `DeviceRead` Pydantic model inside `device.py` 
