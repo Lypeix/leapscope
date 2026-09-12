@@ -406,7 +406,7 @@
 
 ## Dev Day 15 - 12.09.2026
 
-### Session 1 (14:25-x)
+### Session 1 (14:25-15:40)
 
 - Changed Devlog formatting
 
@@ -429,6 +429,16 @@
 
 - Created `device.py` module inside `app/schemas`
 
-- Created `DeviceRegister` Pydantic model inside `device.py` 
+- Created `DeviceRegister` Pydantic model inside `device.py`, which describes the accepted request payload
 
-- Created `DeviceRead` Pydantic model inside `device.py` 
+- Created `DeviceRead` Pydantic model inside `device.py`, which describes the response scheme user has to fill in 
+
+- Added both Pydantic models to `app/schemas/__init__.py` for import convenience
+
+- Created `devices.py` router inside `app/api/routers`
+
+- Created `POST /devices` endpoint inside `devices.py`
+
+- Wired the `devices.py` router to `app/main.py`
+
+- Rebuilt the API with Docker Compose
