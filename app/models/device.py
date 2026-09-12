@@ -29,9 +29,10 @@ class Device(Base):
 
     name: Mapped[str] = mapped_column(String(100))
 
-    token_hash: Mapped[str] = mapped_column(
+    token_hash: Mapped[str | None] = mapped_column(
         String(255),
-        unique=True
+        unique=True,
+        nullable=True # means no collector token has been issued
     )
 
     created_at: Mapped[datetime] = mapped_column(

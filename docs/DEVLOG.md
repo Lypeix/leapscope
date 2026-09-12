@@ -6,8 +6,6 @@
 
 - [Dev Day 2 - 22.08.2026](#dev-day-2---22082026)
 
-- [Break Day - 23.08.2026](#break-day---23082026)
-
 - [Dev Day 3 - 24.08.2026](#dev-day-3---24082026)
 
 - [Dev Day 4 - 25.08.2026](#dev-day-4---25082026)
@@ -87,10 +85,6 @@
 - Drew the collector-to-database data flow
 
 - Defined UTC storage and user reporting-timezone behavior
-
-## Break Day - 23.08.2026
-
-### Break Day
 
 ## Dev Day 3 - 24.08.2026
 
@@ -413,12 +407,20 @@
 ## Dev Day 15 - 12.09.2026
 
 ### Session 1 (14:25-x)
+
 - Changed Devlog formatting
+
 - Created `/docs` housing `DEVLOG.md`, `PRODUCT.md`, `ROADMAP.md`
+
 - Installed the new Docker Desktop update
+
 - Updated the following in `README.md`
     - Project Tree
     - Key Files placement and quantity
     - Current Implemented section
     - Implemented Technology section
     - Created Documentation section
+
+- Allowed the `token_hash` attribute for `Device` ORM class inside `app/models/devices.py` module to contain `SQL NULL` for when no collector token has been issued
+
+- Generated a new Alembic migration to apply the `token_hash` update to the existing PostgreSQL schema
