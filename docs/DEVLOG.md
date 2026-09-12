@@ -415,3 +415,10 @@
 ### Session 1 (14:25-x)
 - Changed Devlog formatting
 - Created `/docs` housing `DEVLOG.md`, `PRODUCT.md`, `ROADMAP.md`
+- Installed the new Docker Desktop update
+- Updated the following in `README.md`
+    - Project Tree
+    - Key Files placement and quantity
+    - Current Implemented section
+    - Implemented Technology section
+    - Created Documentation section
