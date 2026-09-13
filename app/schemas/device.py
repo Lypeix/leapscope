@@ -20,3 +20,9 @@ class DeviceRead(BaseModel): # describes the response / schema user has to fill 
     user_id: UUID
     name: str
     created_at: datetime
+    revoked_at: datetime | None
+
+
+class CollectorTokenResponse(BaseModel):
+    device_id: UUID
+    collector_token: str

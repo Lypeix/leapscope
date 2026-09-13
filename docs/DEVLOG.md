@@ -445,7 +445,28 @@
 
 ## Dev Day 16 - 13.09.2026
 
-### Session 1 (17:00-x)
+### Session 1 (17:00-17:56)
+
 - Added collector token generation inside `app/core/security.py` module using `secrets.token_urlsafe(32)`
+
 - Added `lsc_` prefix to collector tokens for easy identification
+
 - Added `SHA-256` hashing for collector tokens before database storage so that only their hashes need to be stored because a collector token is a credential
+
+- Created `CollectorTokenResponse` Pydantic model inside `app/schemas/device.py` module
+
+- Added `CollectorTokenResponse` to `app/schemas/__init__.py` for import convenience
+
+- Updated `DeviceRead` Pydantic model inside `app/schemas/device` to feature `revoked_at` 
+
+- Inside `app/api/routers/devices.py`:
+    
+    - Created an endpoint for collector token issuance 
+
+        - Added device ownership validation before token issuance
+        
+        - Blocked concurrent token issuance
+
+        - Prevented token issuance for devices that have been either revoked or already possessed a collector token
+
+        - Added `Cache-Control: no store` to collector token responses
