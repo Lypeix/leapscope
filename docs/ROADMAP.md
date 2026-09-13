@@ -84,7 +84,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Add `POST /auth/login`
 - [x] Add `GET /users/me`
 - [x] Add collector-device registration
-- [ ] Generate revocable collector tokens
+- [x] Generate revocable collector tokens
 - [ ] Store collector tokens as hashes
 - [ ] Test authentication and resource ownership
 

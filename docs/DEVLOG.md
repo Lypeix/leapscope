@@ -470,3 +470,14 @@
         - Prevented token issuance for devices that have been either revoked or already possessed a collector token
 
         - Added `Cache-Control: no store` to collector token responses
+
+    - Created an endpoint for collector token revocation
+
+        - Added device ownership validation before revocation
+
+        - Blocked concurrent device state changes
+
+        - Added idempotent revocation with `revoked_at`
+
+
+

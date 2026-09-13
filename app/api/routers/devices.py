@@ -99,3 +99,36 @@ def issue_collector_token( # issuance happens one for each device record
         device_id=device.id,
         collector_token=token
     )
+
+
+@router.post(
+    "/{device_id}/revoke",
+    response_model=DeviceRead
+)
+
+def revoke_device(
+    device_id: UUID,
+    current_user: Annotated[User, Depends(get_current_user)],
+    session: Annotated[Session, Depends(get_db)]
+) -> Device:
+
+    device = session.scalar(
+        select(Device)
+        .where(
+            Device.id == device_id,
+            Device.user_id == current_user.id
+        )
+        .with_for_update()
+    )
+
+    if device is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Device not found"
+        )
+
+    if device.revoked_at is None: # .revoked_at attribute refers to Device model inside app `app/models/devices.py`
+        device.revoked_at = datetime.now(UTC)
+        session.commit()
+
+    return device
