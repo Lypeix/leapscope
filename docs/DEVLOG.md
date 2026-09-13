@@ -442,3 +442,10 @@
 - Wired the `devices.py` router to `app/main.py`
 
 - Rebuilt the API with Docker Compose
+
+## Dev Day 16 - 13.09.2026
+
+### Session 1 (17:00-x)
+- Added collector token generation inside `app/core/security.py` module using `secrets.token_urlsafe(32)`
+- Added `lsc_` prefix to collector tokens for easy identification
+- Added `SHA-256` hashing for collector tokens before database storage so that only their hashes need to be stored because a collector token is a credential

@@ -1,4 +1,7 @@
 from pwdlib import PasswordHash
+from hashlib import sha256
+
+from secrets import token_urlsafe
 
 from datetime import UTC, datetime, timedelta
 from uuid import UUID
@@ -67,3 +70,11 @@ def decode_access_token(token: str) -> UUID:
         raise InvalidTokenError(
             "invalid access token claims"
         ) from error
+
+
+def generate_collector_token() -> str:
+    return "lsc_" + token_urlsafe(32) # lsc makes it recognizable as a collector token
+
+
+def hash_collector_token(token: str) -> str: # converts the token to bytes
+    return sha256(token.encode("utf-8")).hexdigest() 
