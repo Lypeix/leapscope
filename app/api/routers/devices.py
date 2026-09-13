@@ -93,7 +93,7 @@ def issue_collector_token( # issuance happens one for each device record
 
     session.commit()
 
-    response.headers["Cache-Control"] = "no store" # tells tells browsers, proxies and other HTTP caches to not store this response bc it contains a secret credential
+    response.headers["Cache-Control"] = "no-store" # tells tells browsers, proxies and other HTTP caches to not store this response bc it contains a secret credential
 
     return CollectorTokenResponse(
         device_id=device.id,

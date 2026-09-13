@@ -445,7 +445,7 @@
 
 ## Dev Day 16 - 13.09.2026
 
-### Session 1 (17:00-17:56)
+### Session 1 (17:00-19:00)
 
 - Added collector token generation inside `app/core/security.py` module using `secrets.token_urlsafe(32)`
 
@@ -469,7 +469,7 @@
 
         - Prevented token issuance for devices that have been either revoked or already possessed a collector token
 
-        - Added `Cache-Control: no store` to collector token responses
+        - Added `Cache-Control: no-store` to collector token responses
 
     - Created an endpoint for collector token revocation
 
@@ -479,5 +479,18 @@
 
         - Added idempotent revocation with `revoked_at`
 
+- Created authentication flow for the requests made on behalf of automatic Windows collector inside `app/api/dependencies`
 
+- Added missing hyphen to `Cache-Control: no-store`
 
+- Rebuilt Docker Compose
+
+- Tested the API through SwaggerUI:
+    - Successfully registered a user (201)
+    - Successfully logged in (200)
+    - Successfully authorized ()
+    - Successfully registered a device (201)
+    - Successfully issued a collector token for the registered device (201)
+    - Successfully revoked the device (200)
+
+    

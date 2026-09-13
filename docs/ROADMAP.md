@@ -85,7 +85,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Add `GET /users/me`
 - [x] Add collector-device registration
 - [x] Generate revocable collector tokens
-- [ ] Store collector tokens as hashes
+- [x] Store collector tokens as hashes
 - [ ] Test authentication and resource ownership
 
 ### Review And Buffer
