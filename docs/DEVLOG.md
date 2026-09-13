@@ -471,7 +471,7 @@
 
         - Added `Cache-Control: no-store` to collector token responses
 
-    - Created an endpoint for collector token revocation
+    - Created an endpoint for device revocation
 
         - Added device ownership validation before revocation
 
@@ -488,7 +488,7 @@
 - Tested the API through SwaggerUI:
     - Successfully registered a user (201)
     - Successfully logged in (200)
-    - Successfully authorized ()
+    - Successfully authorized
     - Successfully registered a device (201)
     - Successfully issued a collector token for the registered device (201)
     - Successfully revoked the device (200)
