@@ -13,6 +13,10 @@
 - [Project Structure](#project-structure)
 - [How to Start](#how-to-start)
 
+## API Preview 
+
+![LeapScope Swagger UI](docs/images/swagger-ui.png)
+
 ## Status
 
 LeapScope is an in-development, privacy-conscious Windows activity analytics and
