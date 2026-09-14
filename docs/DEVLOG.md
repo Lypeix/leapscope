@@ -32,6 +32,10 @@
 
 - [Dev Day 15 - 12.09.2026](#dev-day-15---12092026)
 
+- [Dev Day 16 - 13.09.2026](#dev-day-16---13092026)
+
+- [Dev Day 17 - 14.09.2026](#dev-day-17---14092026)
+
 ## Dev Day 1 - 21.08.2026
 
 ### Session 1 (18:05-20:15)
@@ -493,4 +497,14 @@
     - Successfully issued a collector token for the registered device (201)
     - Successfully revoked the device (200)
 
-    
+- Added SwaggerUI API image to `README` under a brand new `API Preview` section
+
+## Dev Day 17 - 14.09.2026
+
+### Session 1 (11:24-11:54)
+
+- Refactored test database setup inside `tests/conftest.py`:
+    - Replaced `TestSessionFactory`, `override_get_db()` and initial client fixture with:
+        - db_session fixture that runs each test inside an outer database transaction and rolls it back afterward
+        - improved client fixture that overrides FastAPI `get_db()` dependency to use the transactional test
+        - automatic cleanup of the FastAPI dependency override after each test

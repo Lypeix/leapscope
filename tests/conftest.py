@@ -4,7 +4,7 @@ from os import getenv
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.orm import Session
 
 from app.db.session import get_db
 from app.main import app
@@ -20,20 +20,32 @@ test_engine = create_engine(
     pool_pre_ping=True,
 )
 
-TestSessionFactory = sessionmaker(
-    bind=test_engine,
-    class_=Session,
-    expire_on_commit=False,
-)
 
+@pytest.fixture
 
-def override_get_db() -> Generator[Session, None, None]:
-    with TestSessionFactory() as session:
-        yield session
+def db_session() -> Generator[Session, None, None]:
+    with test_engine.connect() as connection:
+        transaction = connection.begin()
+
+        try:
+            with Session(
+                bind=connection,
+                expire_on_commit=False,
+                join_transaction_mode="create_savepoint"
+            ) as session:
+                yield session
+        finally:
+            transaction.rollback()
 
 
 @pytest.fixture
-def client() -> Generator[TestClient, None, None]:
+
+def client(
+    db_session: Session
+) -> Generator[TestClient, None, None]:
+    def override_get_db() -> Generator[Session, None, None]:
+        yield db_session
+
     app.dependency_overrides[get_db] = override_get_db
 
     try:
@@ -41,5 +53,3 @@ def client() -> Generator[TestClient, None, None]:
             yield test_client
     finally:
         app.dependency_overrides.pop(get_db, None)
-        test_engine.dispose()
-    
