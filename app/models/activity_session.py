@@ -1,11 +1,16 @@
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import UTC, datetime
 from typing import TYPE_CHECKING
 from uuid import UUID, uuid4
 
 from sqlalchemy import DateTime, ForeignKey, Uuid, func
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import(
+    Mapped, 
+    mapped_column, 
+    relationship, 
+    validates,
+)
 
 from app.db.base import Base
 
@@ -54,3 +59,16 @@ class ActivitySession(Base):
 
     device: Mapped[Device] = relationship()
     application: Mapped[Application] = relationship()
+
+    @validates("started_at", "ended_at")
+    def validate_activity_timestamp(
+        self,
+        key: str,
+        value: datetime
+    ) -> datetime:
+        if value.tzinfo is None or value.utcoffset() is None:
+            raise ValueError(
+                f"{key} must include timezone information"
+            )
+
+        return value.astimezone(UTC)

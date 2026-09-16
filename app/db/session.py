@@ -9,7 +9,10 @@ settings = get_settings()
 
 engine = create_engine(
     settings.database_url,
-    pool_pre_ping=True
+    pool_pre_ping=True,
+    connect_args={
+        "options": "-c timezone=UTC"
+    }
 )
 
 SessionFactory = sessionmaker(

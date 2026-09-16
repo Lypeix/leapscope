@@ -18,6 +18,9 @@ TEST_DATABASE_URL = getenv(
 test_engine = create_engine(
     TEST_DATABASE_URL,
     pool_pre_ping=True,
+    connect_args={
+        "options": "-c timezone=UTC"
+    }
 )
 
 

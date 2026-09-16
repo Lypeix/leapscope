@@ -531,9 +531,12 @@
     - Added a test ensuring a unauthorized user cannot revoke owner's device token
     - Added a test checking database directly to confirm the unauthorized user didn't change anything
 
-### Session 2 (18:14-x)
+### Session 2 (18:14-19:07)
 
 - Created an `application.py` module inside `app/models`
 - Created an `application` model
 - Created an `activity_session.py` module inside `app/models`
 - Created an `activity_session` model
+- Registered both models inside `app/models/__init__`
+- Added a timezone validation method to `activity_session.py` module 
+- Set PostgreSQL connection's timezone to UTC inside `app/db/session.py` sqlalchemy engine and test engine
