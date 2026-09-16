@@ -25,7 +25,7 @@ test_engine = create_engine(
 
 def db_session() -> Generator[Session, None, None]:
     with test_engine.connect() as connection:
-        transaction = connection.begin()
+        transaction = connection.begin() # outer transaction (a big transaction encompassing every database action in a test) makes sure changes get reverted after rollback
 
         try:
             with Session(

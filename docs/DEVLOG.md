@@ -508,3 +508,10 @@
         - db_session fixture that runs each test inside an outer database transaction and rolls it back afterward
         - improved client fixture that overrides FastAPI `get_db()` dependency to use the transactional test
         - automatic cleanup of the FastAPI dependency override after each test
+
+## Dev Day 18 - 16.09.2026
+
+### Session 1 (11:31-x)
+- Reviewed code from the last dev day n added comment about outer transactions
+- Created `test_authentication.py` inside `tests/integrations`. Inside the module:
+    - Created `register_and_login()` helper to avoid repeating the setup in the next tests
