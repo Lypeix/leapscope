@@ -4,7 +4,7 @@ from datetime import UTC, datetime
 from typing import TYPE_CHECKING
 from uuid import UUID, uuid4
 
-from sqlalchemy import DateTime, ForeignKey, Uuid, func
+from sqlalchemy import DateTime, ForeignKey, Uuid, UniqueConstraint, func
 from sqlalchemy.orm import(
     Mapped, 
     mapped_column, 
@@ -21,6 +21,16 @@ if TYPE_CHECKING:
 
 class ActivitySession(Base):
     __tablename__ = "activity_sessions"
+
+    __table_args__ = (
+        UniqueConstraint(
+            "device_id",
+            "collector_event_id",
+            name="uq_activity_sessions_device_event"
+        ),
+    )
+
+
 
     id: Mapped[UUID] = mapped_column(
         Uuid,

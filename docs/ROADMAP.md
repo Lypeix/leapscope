@@ -100,8 +100,8 @@ Target: a usable, deployed first release by mid-November 2026.
 
 - [x] Create `Application` and `ActivitySession` models
 - [x] Store activity-session timestamps in UTC according to the product contract
-- [ ] Enforce unique collector event identifiers per device
-- [ ] Generate and apply the activity migration
+- [x] Enforce unique collector event identifiers per device
+- [x] Generate and apply the activity migration
 - [ ] Add batch session-ingestion schemas
 - [ ] Add `POST /collector/sessions/batch`
 - [ ] Reject invalid and negative session durations

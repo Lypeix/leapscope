@@ -147,6 +147,9 @@ leapscope/
 |   `-- workflows/
 |       `-- tests.yml
 |-- alembic/
+|   |-- versions/
+|   |   |-- 99878916e65e_allow_devices_without_collector_tokens.py
+|   |   `-- feb7e505d2c0_create_users_and_devices.py
 |   |-- README
 |   |-- env.py
 |   `-- script.py.mako
@@ -154,6 +157,7 @@ leapscope/
 |   |-- api/
 |   |   |-- routers/
 |   |   |   |-- auth.py
+|   |   |   |-- devices.py
 |   |   |   |-- health.py
 |   |   |   `-- users.py
 |   |   `-- dependencies.py
@@ -166,11 +170,14 @@ leapscope/
 |   |   `-- session.py
 |   |-- integrations/
 |   |-- models/
+|   |   |-- activity_session.py
+|   |   |-- application.py
 |   |   |-- device.py
 |   |   `-- user.py
 |   |-- repositories/
 |   |-- schemas/
 |   |   |-- auth.py
+|   |   |-- device.py
 |   |   `-- user.py
 |   |-- services/
 |   |-- static/
@@ -189,12 +196,15 @@ leapscope/
 |   |-- config.py
 |   `-- main.py
 |-- docs/
+|   |-- images/
+|   |   `-- swagger-ui.png
 |   |-- DEVLOG.md
 |   |-- PRODUCT.md
 |   `-- ROADMAP.md
 |-- tests/
 |   |-- collector/
 |   |-- integration/
+|   |   |-- test_authentication.py
 |   |   `-- test_health.py
 |   |-- unit/
 |   |   |-- test_jwt.py
