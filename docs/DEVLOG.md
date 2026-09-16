@@ -530,3 +530,8 @@
     - Added a test ensuring a unauthorized user cannot issue an collector token for owner's device
     - Added a test ensuring a unauthorized user cannot revoke owner's device token
     - Added a test checking database directly to confirm the unauthorized user didn't change anything
+
+### Session 2 (18:14-x)
+
+- Created an `application.py` module inside `app/models`
+- Created `application` model

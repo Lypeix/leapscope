@@ -90,11 +90,11 @@ Target: a usable, deployed first release by mid-November 2026.
 
 ### Review And Buffer
 
-- [ ] Reconstruct the authentication flow
-- [ ] Explain password hashing versus encryption
-- [ ] Explain JWT authentication versus collector tokens
-- [ ] Review database relationships and ownership
-- [ ] Catch up or stop early if mentally saturated
+- [x] Reconstruct the authentication flow
+- [x] Explain password hashing versus encryption
+- [x] Explain JWT authentication versus collector tokens
+- [x] Review database relationships and ownership
+- [x] Catch up or stop early if mentally saturated
 
 ### Activity Storage And Ingestion
 
