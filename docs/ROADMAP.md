@@ -98,7 +98,7 @@ Target: a usable, deployed first release by mid-November 2026.
 
 ### Activity Storage And Ingestion
 
-- [ ] Create `Application` and `ActivitySession` models
+- [x] Create `Application` and `ActivitySession` models
 - [ ] Store activity-session timestamps in UTC according to the product contract
 - [ ] Enforce unique collector event identifiers per device
 - [ ] Generate and apply the activity migration

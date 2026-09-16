@@ -534,4 +534,6 @@
 ### Session 2 (18:14-x)
 
 - Created an `application.py` module inside `app/models`
-- Created `application` model
+- Created an `application` model
+- Created an `activity_session.py` module inside `app/models`
+- Created an `activity_session` model
