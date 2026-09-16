@@ -58,9 +58,9 @@ def test_authentication_rejects_bad_credentials(client):
         }
     )
     assert login.status_code == 401
-    assert "access_token" not in login.json()
+    assert "access_token" not in login.json() # makes sure server didnt assign an access token to the user who typed wrong password
 
-    missing_token = client.get("/users/me") # makes sure server didnt assign an access token to the user who typed wrong password
+    missing_token = client.get("/users/me")
     assert missing_token.status_code == 401
 
     invalid_token = client.get( # makes sure you cant log in with a garbage token
