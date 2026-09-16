@@ -515,3 +515,5 @@
 - Reviewed code from the last dev day n added comment about outer transactions
 - Created `test_authentication.py` inside `tests/integrations`. Inside the module:
     - Created `register_and_login()` helper to avoid repeating the setup in the next tests
+    - Added a test for successful authentication
+    - Added a test for unsuccessful authentication

@@ -33,3 +33,38 @@ def register_and_login(client, email):
     }
 
     return registration.json(), headers
+
+
+def test_registration_login_current_user(client):
+
+    user, headers = register_and_login(client, "melkor@gmail.com")
+
+    response = client.get("/users/me", headers=headers)
+
+    assert response.status_code == 200
+    assert response.json()["id"] == user["id"]
+    assert response.json("email") == "melkor@gmail.com"
+    assert "password_hash" not in response.json()
+
+
+def test_authentication_rejects_bad_credentials(client):
+    register_and_login(client, "melkor@gmail.com")
+
+    login = client.post(
+        "/auth/login",
+        json = {
+            "email": "melkor@gmail.com",
+            "password": "invalid-password-test-123"
+        }
+    )
+    assert login.status_code == 401
+    assert "access_token" not in login.json()
+
+    missing_token = client.get("/users/me") # makes sure server didnt assign an access token to the user who typed wrong password
+    assert missing_token.status_code == 401
+
+    invalid_token = client.get( # makes sure you cant log in with a garbage token
+        "users/me",
+        headers={"Authorization": "Bearer invalid-token"} 
+        )
+    assert invalid_token.status_code == 401
