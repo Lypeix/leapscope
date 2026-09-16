@@ -150,3 +150,24 @@ def test_other_users_cant_manage_device(client, db_session):
     )
     assert registration.status_code == 201
     assert registration.json()["user_id"] == owner["id"]
+
+    device_id = registration.json()["id"]
+
+    issuance = client.post( # checks that the other user cannot issue a collector token for the owner's device
+        f"/devices/{device_id}/token",
+        headers=other_headers
+    )
+    assert issuance.status_code == 404
+
+    revocation = client.post( # checks that the other user cannot revoke owner's device token
+        f"/devices/{device_id}/revoke",
+        headers=other_headers
+    )
+    assert revocation.status_code == 404
+
+    device = db_session.get(Device, UUID(device_id))
+    assert device is not None
+    db_session.refresh(device)
+
+    assert device.token_hash is None
+    assert device.revoked_at is None

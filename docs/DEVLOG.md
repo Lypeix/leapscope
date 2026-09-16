@@ -511,7 +511,7 @@
 
 ## Dev Day 18 - 16.09.2026
 
-### Session 1 (11:31-x)
+### Session 1 (11:31-13:21)
 - Reviewed code from the last dev day n added comment about outer transactions
 - Created `test_authentication.py` inside `tests/integrations`. Inside the module:
     - Created `register_and_login()` helper to avoid repeating the setup in the next tests
@@ -526,4 +526,7 @@
     - Added a test for `device revocation`
     - Added a test for `usability of a revoked token`
     - Fixed the wrong attribute naming for line 99 (device.token.hash instead of device.token_hash)
-    - Added initial device ownership test
+    - Added device ownership test
+    - Added a test ensuring a unauthorized user cannot issue an collector token for owner's device
+    - Added a test ensuring a unauthorized user cannot revoke owner's device token
+    - Added a test checking database directly to confirm the unauthorized user didn't change anything
