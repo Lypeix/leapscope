@@ -515,5 +515,13 @@
 - Reviewed code from the last dev day n added comment about outer transactions
 - Created `test_authentication.py` inside `tests/integrations`. Inside the module:
     - Created `register_and_login()` helper to avoid repeating the setup in the next tests
-    - Added a test for successful authentication
-    - Added a test for unsuccessful authentication
+    - Added a test for `successful authentication`
+    - Added a test for `unsuccessful authentication`
+    - Fixed the method: response.json("email") to response.json()["email"] in line 46 
+    - Added a test for `token issuance`
+    - Added a test for `token hash`
+    - Added a test for credentials
+    - Added a test for `get_current_device()`
+    - Added a test for `repeated token issuance`
+    - Added a test for `device revocation`
+    - Added a test for `usability of a revoked token`
