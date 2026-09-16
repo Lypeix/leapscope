@@ -525,3 +525,5 @@
     - Added a test for `repeated token issuance`
     - Added a test for `device revocation`
     - Added a test for `usability of a revoked token`
+    - Fixed the wrong attribute naming for line 99 (device.token.hash instead of device.token_hash)
+    - Added initial device ownership test

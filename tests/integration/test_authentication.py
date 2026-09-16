@@ -96,7 +96,7 @@ def test_collector_token_lifecycle(client, db_session):
     assert device is not None
     db_session.refresh(device)
 
-    assert device.token.hash == sha256(
+    assert device.token_hash == sha256(
         token.encode("utf-8")
     ).hexdigest()
 
@@ -132,3 +132,21 @@ def test_collector_token_lifecycle(client, db_session):
         )
 
     assert error.value.status_code == 401
+
+
+def test_other_users_cant_manage_device(client, db_session):
+    owner, owner_headers = register_and_login(
+        client, "melkor@gmail.com"
+    )
+
+    _, other_headers = register_and_login(
+        client, "sauron@gmail.com"
+    )
+
+    registration = client.post(
+        "/devices",
+        json={"name": "Melkor's PC"},
+        headers=owner_headers
+    )
+    assert registration.status_code == 201
+    assert registration.json()["user_id"] == owner["id"]
