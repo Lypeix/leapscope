@@ -43,3 +43,10 @@ class ActivitySessionIngest(BaseModel):
             return value.lower()
 
         return value
+
+    @field_validator
+    @classmethod
+    def normalize_timestamp(cls, value: datetime) -> datetime:
+        return value.astimezone(UTC)
+
+    

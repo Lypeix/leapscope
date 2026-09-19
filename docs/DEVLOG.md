@@ -550,9 +550,10 @@
 
 ## Dev Day 19 - 19.09.2026
 
-### Session 1 (20:07-20:21)
+### Session 1 (20:07-20:26)
 - Added navigation for the following Dev Days: 18 and 19
 - Created `activity_session.py` module inside `app/schemas`
 - Inside the module:
     - Created `ActivitySessionIngest` pydantic model
         - Added executable name normalization
+        - Added timestamp normalization to UTC
