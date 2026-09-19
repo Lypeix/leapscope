@@ -49,4 +49,15 @@ class ActivitySessionIngest(BaseModel):
     def normalize_timestamp(cls, value: datetime) -> datetime:
         return value.astimezone(UTC)
 
-    
+
+class ActivitySessionBatchIngest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    sessions: list[ActivitySessionIngest] = Field(
+        min_length=1,
+        max_length=500
+    )
+
+
+class ActivitySessionBatchResponse(BaseModel):
+    acknowledged_event_ids: list[UUID]

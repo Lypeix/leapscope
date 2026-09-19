@@ -557,3 +557,6 @@
     - Created `ActivitySessionIngest` pydantic model
         - Added executable name normalization
         - Added timestamp normalization to UTC
+    - Created `ActivitySessionBatchIngest` pydantic model
+    - Created `ActivitySessionBatchResponse` pydantic model
+    
