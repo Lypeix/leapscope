@@ -36,6 +36,10 @@
 
 - [Dev Day 17 - 14.09.2026](#dev-day-17---14092026)
 
+- [Dev Day 18 - 16.09.2026](#dev-day-18---16092026)
+
+- [Dev Day 19 - 19.09.2026](#dev-day-19---19092026)
+
 ## Dev Day 1 - 21.08.2026
 
 ### Session 1 (18:05-20:15)
@@ -543,3 +547,12 @@
 - Updated `README.md` project tree
 - Added unique collector event identifiers per device
 - Generated and applied the migration for concepts from this session
+
+## Dev Day 19 - 19.09.2026
+
+### Session 1 (20:07-20:21)
+- Added navigation for the following Dev Days: 18 and 19
+- Created `activity_session.py` module inside `app/schemas`
+- Inside the module:
+    - Created `ActivitySessionIngest` pydantic model
+        - Added executable name normalization
