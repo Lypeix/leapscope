@@ -102,7 +102,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Store activity-session timestamps in UTC according to the product contract
 - [x] Enforce unique collector event identifiers per device
 - [x] Generate and apply the activity migration
-- [ ] Add batch session-ingestion schemas
+- [x] Add batch session-ingestion schemas
 - [ ] Add `POST /collector/sessions/batch`
 - [ ] Reject invalid and negative session durations
 - [ ] Prevent duplicate session ingestion

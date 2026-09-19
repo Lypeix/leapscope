@@ -550,7 +550,7 @@
 
 ## Dev Day 19 - 19.09.2026
 
-### Session 1 (20:07-20:26)
+### Session 1 (20:07-20:34)
 - Added navigation for the following Dev Days: 18 and 19
 - Created `activity_session.py` module inside `app/schemas`
 - Inside the module:
@@ -559,4 +559,4 @@
         - Added timestamp normalization to UTC
     - Created `ActivitySessionBatchIngest` pydantic model
     - Created `ActivitySessionBatchResponse` pydantic model
-    
+- Added the pydantic models from this session to `app/schemas/__init__.py`
