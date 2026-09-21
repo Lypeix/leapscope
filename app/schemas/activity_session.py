@@ -61,3 +61,4 @@ class ActivitySessionBatchIngest(BaseModel):
 
 class ActivitySessionBatchResponse(BaseModel):
     acknowledged_event_ids: list[UUID]
+

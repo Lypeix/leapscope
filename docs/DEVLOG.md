@@ -40,6 +40,8 @@
 
 - [Dev Day 19 - 19.09.2026](#dev-day-19---19092026)
 
+- [Dev Day 20 - 21.09.2026](#dev-day-20---21092026) | 1000th GitHub commit!
+
 ## Dev Day 1 - 21.08.2026
 
 ### Session 1 (18:05-20:15)
@@ -560,3 +562,13 @@
     - Created `ActivitySessionBatchIngest` pydantic model
     - Created `ActivitySessionBatchResponse` pydantic model
 - Added the pydantic models from this session to `app/schemas/__init__.py`
+
+## Dev Day 20 - 21.09.2026
+
+### Session 1 (17:22-18:10)
+- 1000th commit on github!
+- Created `collector.py` router module under `app/api/routers`
+- Reviewed the codespace relevant to the endpoint creation
+- Created `POST /collector/sessions/batch` endpoint
+- Created IntegrityError handling for the `POST /collector/sessions/batch` endpoint
+- Wired the `collector` router to `main.py`
