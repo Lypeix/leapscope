@@ -73,7 +73,7 @@ def ingest_sessions_batch(
                 detail="The batch conflicts with existing records. No changes from this batch were saved"
             ) from error
 
-        raise # raises the error if integrity error wasn't caused by UniqueViolation (which happens when eg. there r two identical device ids)
+        raise # re-raises the IntegrityError if it wasn't a UniqueViolation
 
     return ActivitySessionBatchResponse(
         acknowledged_event_ids=[
