@@ -1,3 +1,5 @@
+from typing import Self
+
 from datetime import UTC, datetime
 from uuid import UUID
 
@@ -6,7 +8,8 @@ from pydantic import (
     BaseModel,
     ConfigDict,
     Field,
-    field_validator
+    field_validator,
+    model_validator
 )
 
 
@@ -49,6 +52,14 @@ class ActivitySessionIngest(BaseModel):
     def normalize_timestamp(cls, value: datetime) -> datetime:
         return value.astimezone(UTC)
 
+    @model_validator(mode="after")
+    def validate_duration(self) -> Self:
+        if self.ended_at <= self.started_at:
+            raise ValueError(
+                "ended_at must be later than started_at"
+            )
+
+        return self
 
 class ActivitySessionBatchIngest(BaseModel):
     model_config = ConfigDict(extra="forbid")

@@ -572,3 +572,9 @@
 - Created `POST /collector/sessions/batch` endpoint
 - Created IntegrityError handling for the `POST /collector/sessions/batch` endpoint
 - Wired the `collector` router to `main.py`
+
+## Dev Day 21 - 22.09.2026
+
+### Session 1 (19:35-x)
+- Added validation ensuring ended_at is later than started_at for `ActivitySessionIngest` inside `app/schemas/activity_session.py`
+- 
