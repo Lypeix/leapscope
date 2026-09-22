@@ -4,7 +4,7 @@ from datetime import UTC, datetime
 from typing import TYPE_CHECKING
 from uuid import UUID, uuid4
 
-from sqlalchemy import DateTime, ForeignKey, Uuid, UniqueConstraint, func
+from sqlalchemy import DateTime, ForeignKey, Uuid, UniqueConstraint, CheckConstraint, func
 from sqlalchemy.orm import(
     Mapped, 
     mapped_column, 
@@ -28,6 +28,11 @@ class ActivitySession(Base):
             "collector_event_id",
             name="uq_activity_sessions_device_event"
         ),
+
+        CheckConstraint(
+            "ended_at > started_at",
+            name="ck_activity_sessions_positive_duration"
+        )
     )
 
 

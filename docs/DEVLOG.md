@@ -577,4 +577,8 @@
 
 ### Session 1 (19:35-x)
 - Added validation ensuring ended_at is later than started_at for `ActivitySessionIngest` inside `app/schemas/activity_session.py`
-- 
+- Added additional database layer validation with `CheckConstraint` for `ActivitySession` model inside `app/models/activity_session.py`
+- Created empty Alembic revision
+- Generated, applied and checked Alembic migration to update the tables without `CheckConstraint` validation 
+    - struggled with generation until realizing docker compose and postgresql werent online...
+

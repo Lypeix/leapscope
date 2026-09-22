@@ -104,7 +104,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Generate and apply the activity migration
 - [x] Add batch session-ingestion schemas
 - [x] Add `POST /collector/sessions/batch`
-- [ ] Reject invalid and negative session durations
+- [x] Reject invalid and negative session durations
 - [ ] Prevent duplicate session ingestion
 - [ ] Enforce device and user ownership
 - [ ] Add `GET /sessions`
