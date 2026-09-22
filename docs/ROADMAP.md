@@ -105,7 +105,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Add batch session-ingestion schemas
 - [x] Add `POST /collector/sessions/batch`
 - [x] Reject invalid and negative session durations
-- [ ] Prevent duplicate session ingestion
+- [x] Prevent duplicate session ingestion
 - [ ] Enforce device and user ownership
 - [ ] Add `GET /sessions`
 - [ ] Test duplicates, ownership, and invalid timestamps
