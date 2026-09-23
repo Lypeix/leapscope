@@ -42,6 +42,10 @@
 
 - [Dev Day 20 - 21.09.2026](#dev-day-20---21092026) | 1000th GitHub commit!
 
+- [Dev Day 21 - 22.09.2026](#dev-day-21---22092026) 
+
+- [Dev Day 22 - 23.09.2026](#dev-day-22---23092026) 
+
 ## Dev Day 1 - 21.08.2026
 
 ### Session 1 (18:05-20:15)
@@ -589,3 +593,9 @@
         - transaction rollback
         - acknowledged event ID responses
 
+## Dev Day 22 - 23.09.2026
+
+### Session 1 (18:57-1:22)
+- Created `ActivitySessionRead` inside `app/schemas/activity_session.py`
+- Created `app/api/routers/session.py` and `GET /sessions` endpoint
+- Registered the router in `main.py`

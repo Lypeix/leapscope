@@ -61,6 +61,7 @@ class ActivitySessionIngest(BaseModel):
 
         return self
 
+
 class ActivitySessionBatchIngest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -72,4 +73,16 @@ class ActivitySessionBatchIngest(BaseModel):
 
 class ActivitySessionBatchResponse(BaseModel):
     acknowledged_event_ids: list[UUID]
+
+
+class ActivitySessionRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: UUID
+    device_id: UUID
+    application_id: UUID
+    collector_event_id: UUID
+    started_at: datetime
+    ended_at: datetime
+    created_at: datetime
 

@@ -5,7 +5,7 @@ from fastapi import FastAPI
 
 from app.core.config import get_settings
 
-from app.api.routers import health, auth, users, devices, collector
+from app.api.routers import health, auth, users, devices, collector, sessions
 
 @asynccontextmanager # this decorator means: Treat the code before yield as setup and the code after yield as cleanup.
 async def lifespan(_app: FastAPI) -> AsyncGenerator[None, None]:
@@ -24,3 +24,4 @@ app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(devices.router)
 app.include_router(collector.router)
+app.include_router(sessions.router)

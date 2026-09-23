@@ -106,8 +106,8 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Add `POST /collector/sessions/batch`
 - [x] Reject invalid and negative session durations
 - [x] Prevent duplicate session ingestion
-- [ ] Enforce device and user ownership
-- [ ] Add `GET /sessions`
+- [x] Enforce device and user ownership
+- [x] Add `GET /sessions`
 - [ ] Test duplicates, ownership, and invalid timestamps
 
 ### Windows Collector Prototype
@@ -126,7 +126,7 @@ Target: a usable, deployed first release by mid-November 2026.
 
 - [ ] Create the local SQLite queue
 - [ ] Save completed sessions before uploading
-- [ ] Upload sessions in batches using HTTPX
+- [ ] Upload sessions in batches using HTTPX2
 - [ ] Mark successfully synchronized sessions
 - [ ] Retain sessions after failed synchronization
 - [ ] Retry safely without creating duplicates
