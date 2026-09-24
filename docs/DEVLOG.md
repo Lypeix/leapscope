@@ -595,7 +595,7 @@
 
 ## Dev Day 22 - 23.09.2026
 
-### Session 1 (18:57-1:22)
+### Session 1 (18:57-19:22)
 - Created `ActivitySessionRead` inside `app/schemas/activity_session.py`
 - Created `app/api/routers/session.py` and `GET /sessions` endpoint
 - Registered the router in `main.py`
