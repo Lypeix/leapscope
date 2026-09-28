@@ -599,3 +599,14 @@
 - Created `ActivitySessionRead` inside `app/schemas/activity_session.py`
 - Created `app/api/routers/session.py` and `GET /sessions` endpoint
 - Registered the router in `main.py`
+
+# 4 Days of All-Out Coding Break
+
+## Dev Day 23 - 28.09.2026
+
+### Session 1 (21:02-21:34)
+- Created `test_activity_session.py` inside `tests/integration`
+    - Created helpers:
+        - make_actor() - creates a test user, device n auth headers
+        - make_event() - creates customizable activity session payloads
+        - upload() - sends authenticated session batches to the collector endpoint
