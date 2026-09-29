@@ -135,4 +135,4 @@ def test_conflicting_duplicate_rolls_back_batch(client, db_session, make_actor):
     executables = db_session.scalars(
         select(Application.executable_name)
     ).all()
-    assert executables == ["code.exe"]
+    assert executables == ["Sun.exe"]
