@@ -62,3 +62,39 @@ def upload(client, actor, events):
         headers=actor["collector_headers"],
         json={"sessions": events}
     )
+
+
+def test_duplicate_uploads_store_one_session(client, db_session, make_actor):
+    actor = make_actor()
+    event = make_event(
+        started_at="2026-09-23T11:00:00+2:00",
+        ended_at="2026-09-23T11:05:00+2:00"
+    )
+
+    for batch in ([event, event], [event]):
+        response = upload(client, actor, batch)
+
+        assert response.status_code == 200, response.text
+        assert response.json()["acknowledged_event_ids"] == [
+            event["collector_event_id"]
+        ]
+
+    count = db_session.scalar(
+        select(func.count()).select_from(ActivitySession)
+    )
+    assert count == 1
+
+    history = client.get("/sessions", headers=actor["user_headers"])
+    assert history.status_code == 200, history.text
+
+    rows = history.json()
+    assert len(rows) == 1
+    assert rows[0]["collector_event_id"] == event["collector_event_id"]
+
+    started_at = datetime.fromisoformat(rows[0]["started_at"])
+    ended_at = datetime.fromisoformat(rows[0]["ended_at"])
+
+    assert started_at == datetime(2026, 9, 23, 9, 0, tzinfo=UTC)
+    assert ended_at == datetime(2026, 9, 23, 9, 5, tzinfo=UTC)
+    assert started_at.utcoffset() == timedelta(0)
+    assert ended_at.utcoffset() == timedelta(0)

@@ -46,6 +46,10 @@
 
 - [Dev Day 22 - 23.09.2026](#dev-day-22---23092026) 
 
+- [Dev Day 23 - 28.09.2026](#dev-day-23---28092026)
+
+- [Dev Day 24 - 23.09.2026](#dev-day-24---29092026) 
+
 ## Dev Day 1 - 21.08.2026
 
 ### Session 1 (18:05-20:15)
@@ -606,7 +610,14 @@
 
 ### Session 1 (21:02-21:34)
 - Created `test_activity_session.py` inside `tests/integration`
-    - Created helpers:
+    - Created helpers:   
         - make_actor() - creates a test user, device n auth headers
         - make_event() - creates customizable activity session payloads
-        - upload() - sends authenticated session batches to the collector endpoint
+        - upload() - sends authenticated session batches to the collector endpoint  
+
+## Dev Day 24 - 29.09.2026
+
+### Session 1 (19:01-x)
+- Inside `tests/integration/test_activity_session.py`:
+    - Created test checking for whether duplicate session uploads are stored only once
+    - Added checks for whether timestamps are correctly normalized to UTC
