@@ -225,7 +225,7 @@ def test_invalid_timestamp_are_rejected(
     client, db_session, make_actor, changes
 ):
     actor = make_actor()
-    response = upload(client, db_session, [make_event(**changes)])
+    response = upload(client, actor, [make_event(**changes)])
 
     assert response.status_code == 422, response.text
 
