@@ -136,3 +136,69 @@ def test_conflicting_duplicate_rolls_back_batch(client, db_session, make_actor):
         select(Application.executable_name)
     ).all()
     assert executables == ["sun.exe"]
+
+
+def test_sessions_are_scoped_to_their_owner(
+    client, db_session, make_actor
+):
+    alice = make_actor()
+    alice_laptop = make_actor(user=alice["user"])
+    bob = make_actor()
+
+    event = make_event()
+
+    for actor in (alice, alice_laptop, bob):
+        submitted = dict(event)
+
+        if actor is alice_laptop:
+            submitted.update(
+                started_at="2026-09-23T10:00:00Z",
+                ended_at="2026-09-23T10:05:00Z",
+            )
+
+        response = upload(client, actor, [submitted])
+        assert response.status_code == 200, response.text
+
+    alice_response = client.get(
+        "/sessions", headers=alice["user_headers"]
+    )
+    bob_response = client.get(
+        "/sessions", headers=bob["user_headers"]
+    )
+    assert alice_response.status_code == 200
+    assert bob_response.status_code == 200
+
+    alice_rows = alice_response.json()
+    bob_rows = bob_response.json()
+
+    assert [row["device_id"] for row in alice_rows] == [
+        str(alice_laptop["device"].id),
+        str(alice["device"].id),
+    ]
+    assert len(bob_rows) == 1
+    assert bob_rows[0]["device_id"] == str(bob["device"].id)
+
+    assert alice_rows[0]["application_id"] == alice_rows[1]["application_id"]
+    assert alice_rows[0]["application_id"] != bob_rows[0]["application_id"]
+
+    page = client.get(
+        "/sessions",
+        headers=alice["user_headers"],
+        params={"limit": 1, "offset": 1},
+    )
+    assert page.status_code == 200
+    assert page.json() == alice_rows[1:2]
+
+    assert client.get("/sessions").status_code == 401
+    assert client.get(
+        "/sessions", headers=alice["collector_headers"]
+    ).status_code == 401
+
+    forged_event = make_event(device_id=str(bob["device"].id))
+    rejected = upload(client, alice, [forged_event])
+    assert rejected.status_code == 422
+
+    count = db_session.scalar(
+        select(func.count()).select_from(ActivitySession)
+    )
+    assert count == 3

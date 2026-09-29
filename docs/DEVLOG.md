@@ -622,4 +622,7 @@
     - Created test checking for whether duplicate session uploads are stored only once
     - Added checks for whether timestamps are correctly normalized to UTC
     - Created test verifying transaction rollback for when a batch contains a conflicting duplicate event
-    
+
+### Session 2 (22:51-x)
+    - Inside `tests/integration/test_activity_session.py`:
+        - Created test checking whether users see their own sessions including across multiple devices
