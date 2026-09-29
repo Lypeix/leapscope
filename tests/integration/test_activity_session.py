@@ -128,8 +128,8 @@ def test_conflicting_duplicate_rolls_back_batch(client, db_session, make_actor):
     
     assert len(stored) == 1
     assert stored[0].collector_event_id == UUID(original["collector_event_id"])
-    assert stored[0].ended_at == datetime(
-        2026, 9, 23, 9, 5, tzinfo=UTC
+    assert stored[0].ended_at == datetime.fromisoformat(
+        original["ended_at"].replace("Z", "+00:00")
     )
 
     executables = db_session.scalars(
