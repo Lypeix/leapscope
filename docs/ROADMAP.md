@@ -108,7 +108,7 @@ Target: a usable, deployed first release by mid-November 2026.
 - [x] Prevent duplicate session ingestion
 - [x] Enforce device and user ownership
 - [x] Add `GET /sessions`
-- [ ] Test duplicates, ownership, and invalid timestamps
+- [x] Test duplicates, ownership, and invalid timestamps
 
 ### Windows Collector Prototype
 
