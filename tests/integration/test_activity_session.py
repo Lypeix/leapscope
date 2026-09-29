@@ -202,3 +202,35 @@ def test_sessions_are_scoped_to_their_owner(
         select(func.count()).select_from(ActivitySession)
     )
     assert count == 3
+
+
+@pytest.mark.parametrize(
+    "changes",
+    [
+        {"started_at": "2026-09-23T09:00:00"},
+        {"ended_at": "2026-09-23T09:05:00"},
+        {"started_at": "not-a-timestamp"},
+        {"ended_at": "2026-09-23T09:00:00Z"},
+        {"ended_at": "2026-09-23T08:59:00Z"},
+    ],
+    ids=[
+        "naive-start",
+        "naive-end",
+        "malformed-timestamp",
+        "zero-duration",
+        "negative-duration"
+    ],
+)
+def test_invalid_timestamp_are_rejected(
+    client, db_session, make_actor, changes
+):
+    actor = make_actor()
+    response = upload(client, db_session, [make_event(**changes)])
+
+    assert response.status_code == 422, response.text
+
+    count = db_session.scalar(
+        select(func.count()).select_from(ActivitySession)
+    )
+    
+    assert count == 0
