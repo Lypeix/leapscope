@@ -65,11 +65,13 @@ def upload(client, actor, events):
 
 
 def test_duplicate_uploads_store_one_session(client, db_session, make_actor):
-    actor = make_actor()
+    actor = make_actor() # defining actor individually for each test so that each test gets its fresh isolated setup
     event = make_event(
-        started_at="2026-09-23T11:00:00+2:00",
-        ended_at="2026-09-23T11:05:00+2:00"
+        started_at="2026-09-23T11:00:00+02:00", 
+        ended_at="2026-09-23T11:05:00+02:00"
     )
+
+    
 
     for batch in ([event, event], [event]):
         response = upload(client, actor, batch)
@@ -98,3 +100,39 @@ def test_duplicate_uploads_store_one_session(client, db_session, make_actor):
     assert ended_at == datetime(2026, 9, 23, 9, 5, tzinfo=UTC)
     assert started_at.utcoffset() == timedelta(0)
     assert ended_at.utcoffset() == timedelta(0)
+
+
+def test_conflicting_duplicate_rolls_back_batch(client, db_session, make_actor):
+    actor = make_actor()
+
+    original = make_event(collector_event_id=str(UUID(int=2)))
+    response = upload(client, actor, [original])
+    assert response.status_code == 200, response.text
+
+    new_event = make_event(
+        collector_event_id=str(UUID(int=1)),
+        executable_name="firefox.exe",
+        started_at="2026-09-23T10:00:00Z",
+        ended_at="2026-09-23T10:05:00Z"
+    )
+    
+    changed_event = {
+        **original,
+        "ended_at": "2026-09-23T09:10:00Z"
+    }
+
+    response = upload(client, actor, [new_event, changed_event])
+    assert response.status_code == 409, response.text
+
+    stored = db_session.scalars(select(ActivitySession)).all()
+    
+    assert len(stored) == 1
+    assert stored[0].collector_event_id == UUID(original["collector_event_id"])
+    assert stored[0].ended_at == datetime(
+        2026, 9, 23, 9, 5, tzinfo=UTC
+    )
+
+    executables = db_session.scalars(
+        select(Application.executable_name)
+    ).all()
+    assert executables == ["code.exe"]

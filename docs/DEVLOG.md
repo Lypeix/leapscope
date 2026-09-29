@@ -617,7 +617,9 @@
 
 ## Dev Day 24 - 29.09.2026
 
-### Session 1 (19:01-x)
+### Session 1 (19:01-20:08)
 - Inside `tests/integration/test_activity_session.py`:
     - Created test checking for whether duplicate session uploads are stored only once
     - Added checks for whether timestamps are correctly normalized to UTC
+    - Created test verifying transaction rollback for when a batch contains a conflicting duplicate event
+    
